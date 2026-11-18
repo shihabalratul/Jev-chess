@@ -77,6 +77,11 @@ All 176 moves were played and confirmed without a single hiccup, at roughly **1�
 Six games is a tiny sample, so this is a first impression, not a rating.
 ([Full results](docs/verification.md#lichess-play-against-lichess-ai-2026-11-18))
 
+**And on Chess.com?** Earlier, through the browser extension, Jev played some of Chess.com's bots and a few human
+opponents. The results were **mostly draws or losses**, so no hidden grandmaster here. (Those games weren't
+recorded as carefully as the Lichess series, and the human ones are what got the author's account banned. See
+the [fair-play note](#-a-friendly-note-on-fair-play-from-someone-who-learned-the-hard-way) below. 🪦)
+
 ## 🚀 Try it
 
 ### Just watch: no install needed
