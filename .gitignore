@@ -16,3 +16,6 @@ releases/
 .agents/
 /Chess.com
 playwright/.cache/
+
+# Personal launch notes (not published)
+LAUNCH_PLAN.md

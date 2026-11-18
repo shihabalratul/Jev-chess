@@ -1,0 +1,19 @@
+name: ✨ Feature request
+description: Suggest an idea or a new board/site to support
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How should it work? Mockups and examples welcome.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

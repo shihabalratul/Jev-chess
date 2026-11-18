@@ -1,0 +1,48 @@
+name: 🐛 Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options:
+        - Browser board (Board Lab demo)
+        - Browser board (other website)
+        - Lichess BOT
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider mode
+      options: [live, mock]
+    validations:
+      required: true
+  - type: dropdown
+    id: input
+    attributes:
+      label: Input mode
+      options: [Click, Drag, Browser click (CDP), Browser drag (CDP), Not relevant]
+  - type: input
+    id: version
+    attributes:
+      label: JevChess version / commit
+      placeholder: 1.3.0 or a commit hash
+  - type: input
+    id: env
+    attributes:
+      label: Browser, OS and Node version
+      placeholder: Chrome 140, Fedora 44, Node 22.13
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Attach the zipped `logs/<session-id>/` folder if you can. Credentials are stripped, but please review it first. **Never paste API keys or tokens.**
