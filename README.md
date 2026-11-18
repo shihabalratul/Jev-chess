@@ -44,8 +44,11 @@ then checks the board to confirm it really happened. It can also run as a **Lich
 
 Play with the **Board Lab** right in your browser: **https://shihabalratul.github.io/Jev-chess/**
 
-It's the same test board JevChess develops against (DOM/Canvas rendering, flip, FEN loading and a simple mock opponent).
-The hosted page is just the board; to watch **Jev** play, run the backend and extension locally (below).
+- **▶ Watch Jev play:** replay a real recorded game in which Jev beats a random-move opponent, with Jev's
+  shortlist, forecast replies and final probabilities shown for every move.
+- **♟ Play:** the Board Lab test board (DOM/Canvas rendering, flip, FEN loading, random-reply opponent).
+
+Live AI play needs the extension and a local backend, so it isn't available on the hosted page; see the quick start below.
 
 ## 🚀 Quick start
 

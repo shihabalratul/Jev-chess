@@ -1,0 +1,1106 @@
+{
+ "title": "Jev vs a random-move opponent",
+ "description": "A real game from the live benchmark: Jev (White) chose every move through its staged decision pipeline; Black played uniformly random legal moves (seeded, no engine).",
+ "model": "typesafe/jev-1.13-20260917",
+ "date": "2026-10-20",
+ "result": "1-0 (checkmate)",
+ "stages": [
+  "nominate",
+  "shortlist",
+  "forecast replies",
+  "choose"
+ ],
+ "totalCostUsd": 0.0139,
+ "plies": [
+  {
+   "san": "e4",
+   "uci": "e2e4",
+   "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+   "by": "jev",
+   "jev": {
+    "nominated": 10,
+    "shortlist": [
+     {
+      "san": "e4",
+      "p": 0.87
+     },
+     {
+      "san": "Nf3",
+      "p": 0.07
+     },
+     {
+      "san": "d4",
+      "p": 0.05
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     }
+    ],
+    "replies": [
+     {
+      "move": "e4",
+      "reply": "e5"
+     },
+     {
+      "move": "Nf3",
+      "reply": "Nf6"
+     },
+     {
+      "move": "d4",
+      "reply": "d5"
+     }
+    ],
+    "final": [
+     {
+      "san": "e4",
+      "p": 0.68
+     },
+     {
+      "san": "Nf3",
+      "p": 0.21
+     },
+     {
+      "san": "d4",
+      "p": 0.11
+     }
+    ],
+    "latencyMs": 1569
+   }
+  },
+  {
+   "san": "c6",
+   "uci": "c7c6",
+   "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+   "by": "opponent"
+  },
+  {
+   "san": "Nf3",
+   "uci": "g1f3",
+   "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Nf3",
+      "p": 0.41
+     },
+     {
+      "san": "d4",
+      "p": 0.2
+     },
+     {
+      "san": "Nc3",
+      "p": 0.13
+     },
+     {
+      "san": "Bc4",
+      "p": 0.11
+     }
+    ],
+    "replies": [
+     {
+      "move": "Nf3",
+      "reply": "Nf6"
+     },
+     {
+      "move": "d4",
+      "reply": "Qa5+"
+     },
+     {
+      "move": "Nc3",
+      "reply": "Nf6"
+     }
+    ],
+    "final": [
+     {
+      "san": "Nf3",
+      "p": 0.57
+     },
+     {
+      "san": "Nc3",
+      "p": 0.4
+     },
+     {
+      "san": "d4",
+      "p": 0.03
+     }
+    ],
+    "latencyMs": 2392
+   }
+  },
+  {
+   "san": "h6",
+   "uci": "h7h6",
+   "fen": "rnbqkbnr/pp1pppp1/2p4p/8/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+   "by": "opponent"
+  },
+  {
+   "san": "Nc3",
+   "uci": "b1c3",
+   "fen": "rnbqkbnr/pp1pppp1/2p4p/8/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 1 3",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Nc3",
+      "p": 0.31
+     },
+     {
+      "san": "Ne5",
+      "p": 0.22
+     },
+     {
+      "san": "d4",
+      "p": 0.2
+     },
+     {
+      "san": "Bc4",
+      "p": 0.14
+     }
+    ],
+    "replies": [
+     {
+      "move": "Nc3",
+      "reply": "Nf6"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Nf6"
+     },
+     {
+      "move": "d4",
+      "reply": "Qa5+"
+     }
+    ],
+    "final": [
+     {
+      "san": "Nc3",
+      "p": 0.74
+     },
+     {
+      "san": "Ne5",
+      "p": 0.23
+     },
+     {
+      "san": "d4",
+      "p": 0.03
+     }
+    ],
+    "latencyMs": 2441
+   }
+  },
+  {
+   "san": "c5",
+   "uci": "c6c5",
+   "fen": "rnbqkbnr/pp1pppp1/7p/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+   "by": "opponent"
+  },
+  {
+   "san": "Nd5",
+   "uci": "c3d5",
+   "fen": "rnbqkbnr/pp1pppp1/7p/2pN4/4P3/5N2/PPPP1PPP/R1BQKB1R b KQkq - 1 4",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "d4",
+      "p": 0.25
+     },
+     {
+      "san": "Nd5",
+      "p": 0.24
+     },
+     {
+      "san": "Bc4",
+      "p": 0.22
+     },
+     {
+      "san": "Ne5",
+      "p": 0.15
+     }
+    ],
+    "replies": [
+     {
+      "move": "d4",
+      "reply": "cxd4"
+     },
+     {
+      "move": "Nd5",
+      "reply": "Nc6"
+     },
+     {
+      "move": "Bc4",
+      "reply": "Nc6"
+     }
+    ],
+    "final": [
+     {
+      "san": "Nd5",
+      "p": 0.57
+     },
+     {
+      "san": "Bc4",
+      "p": 0.38
+     },
+     {
+      "san": "d4",
+      "p": 0.05
+     }
+    ],
+    "latencyMs": 2106
+   }
+  },
+  {
+   "san": "Nf6",
+   "uci": "g8f6",
+   "fen": "rnbqkb1r/pp1pppp1/5n1p/2pN4/4P3/5N2/PPPP1PPP/R1BQKB1R w KQkq - 2 5",
+   "by": "opponent"
+  },
+  {
+   "san": "Nxf6+",
+   "uci": "d5f6",
+   "fen": "rnbqkb1r/pp1pppp1/5N1p/2p5/4P3/5N2/PPPP1PPP/R1BQKB1R b KQkq - 0 5",
+   "by": "jev",
+   "jev": {
+    "nominated": 14,
+    "shortlist": [
+     {
+      "san": "Nxf6+",
+      "p": 0.95
+     },
+     {
+      "san": "Ne5",
+      "p": 0.02
+     },
+     {
+      "san": "d4",
+      "p": 0.01
+     },
+     {
+      "san": "e5",
+      "p": 0.01
+     }
+    ],
+    "replies": [
+     {
+      "move": "Nxf6+",
+      "reply": "gxf6"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Nxd5"
+     },
+     {
+      "move": "d4",
+      "reply": "Nxd5"
+     }
+    ],
+    "final": [
+     {
+      "san": "Nxf6+",
+      "p": 0.76
+     },
+     {
+      "san": "d4",
+      "p": 0.15
+     },
+     {
+      "san": "Ne5",
+      "p": 0.09
+     }
+    ],
+    "latencyMs": 2039
+   }
+  },
+  {
+   "san": "exf6",
+   "uci": "e7f6",
+   "fen": "rnbqkb1r/pp1p1pp1/5p1p/2p5/4P3/5N2/PPPP1PPP/R1BQKB1R w KQkq - 0 6",
+   "by": "opponent"
+  },
+  {
+   "san": "Bc4",
+   "uci": "f1c4",
+   "fen": "rnbqkb1r/pp1p1pp1/5p1p/2p5/2B1P3/5N2/PPPP1PPP/R1BQK2R b KQkq - 1 6",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bc4",
+      "p": 0.29
+     },
+     {
+      "san": "d4",
+      "p": 0.18
+     },
+     {
+      "san": "e5",
+      "p": 0.16
+     },
+     {
+      "san": "Ne5",
+      "p": 0.15
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bc4",
+      "reply": "Bd6"
+     },
+     {
+      "move": "d4",
+      "reply": "cxd4"
+     },
+     {
+      "move": "e5",
+      "reply": "fxe5"
+     }
+    ],
+    "final": [
+     {
+      "san": "Bc4",
+      "p": 0.86
+     },
+     {
+      "san": "d4",
+      "p": 0.07
+     },
+     {
+      "san": "e5",
+      "p": 0.07
+     }
+    ],
+    "latencyMs": 1878
+   }
+  },
+  {
+   "san": "Na6",
+   "uci": "b8a6",
+   "fen": "r1bqkb1r/pp1p1pp1/n4p1p/2p5/2B1P3/5N2/PPPP1PPP/R1BQK2R w KQkq - 2 7",
+   "by": "opponent"
+  },
+  {
+   "san": "O-O",
+   "uci": "e1g1",
+   "fen": "r1bqkb1r/pp1p1pp1/n4p1p/2p5/2B1P3/5N2/PPPP1PPP/R1BQ1RK1 b kq - 3 7",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bxa6",
+      "p": 0.81
+     },
+     {
+      "san": "Ne5",
+      "p": 0.05
+     },
+     {
+      "san": "O-O",
+      "p": 0.04
+     },
+     {
+      "san": "d4",
+      "p": 0.03
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bxa6",
+      "reply": "bxa6"
+     },
+     {
+      "move": "Ne5",
+      "reply": "fxe5"
+     },
+     {
+      "move": "O-O",
+      "reply": "Nb4"
+     }
+    ],
+    "final": [
+     {
+      "san": "O-O",
+      "p": 0.49
+     },
+     {
+      "san": "Bxa6",
+      "p": 0.47
+     },
+     {
+      "san": "Ne5",
+      "p": 0.04
+     }
+    ],
+    "latencyMs": 1889
+   }
+  },
+  {
+   "san": "Rb8",
+   "uci": "a8b8",
+   "fen": "1rbqkb1r/pp1p1pp1/n4p1p/2p5/2B1P3/5N2/PPPP1PPP/R1BQ1RK1 w k - 4 8",
+   "by": "opponent"
+  },
+  {
+   "san": "Bxa6",
+   "uci": "c4a6",
+   "fen": "1rbqkb1r/pp1p1pp1/B4p1p/2p5/4P3/5N2/PPPP1PPP/R1BQ1RK1 b k - 0 8",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bxa6",
+      "p": 0.75
+     },
+     {
+      "san": "Ne5",
+      "p": 0.07
+     },
+     {
+      "san": "e5",
+      "p": 0.05
+     },
+     {
+      "san": "d4",
+      "p": 0.04
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bxa6",
+      "reply": "bxa6"
+     },
+     {
+      "move": "Ne5",
+      "reply": "fxe5"
+     },
+     {
+      "move": "e5",
+      "reply": "fxe5"
+     }
+    ],
+    "final": [
+     {
+      "san": "Bxa6",
+      "p": 0.72
+     },
+     {
+      "san": "e5",
+      "p": 0.22
+     },
+     {
+      "san": "Ne5",
+      "p": 0.06
+     }
+    ],
+    "latencyMs": 2025
+   }
+  },
+  {
+   "san": "Qe7",
+   "uci": "d8e7",
+   "fen": "1rb1kb1r/pp1pqpp1/B4p1p/2p5/4P3/5N2/PPPP1PPP/R1BQ1RK1 w k - 1 9",
+   "by": "opponent"
+  },
+  {
+   "san": "Re1",
+   "uci": "f1e1",
+   "fen": "1rb1kb1r/pp1pqpp1/B4p1p/2p5/4P3/5N2/PPPP1PPP/R1BQR1K1 b k - 2 9",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bxb7",
+      "p": 0.53
+     },
+     {
+      "san": "Ne5",
+      "p": 0.12
+     },
+     {
+      "san": "Re1",
+      "p": 0.1
+     },
+     {
+      "san": "e5",
+      "p": 0.07
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bxb7",
+      "reply": "Rxb7"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "Re1",
+      "reply": "bxa6"
+     }
+    ],
+    "final": [
+     {
+      "san": "Re1",
+      "p": 0.55
+     },
+     {
+      "san": "Bxb7",
+      "p": 0.32
+     },
+     {
+      "san": "Ne5",
+      "p": 0.13
+     }
+    ],
+    "latencyMs": 2006
+   }
+  },
+  {
+   "san": "c4",
+   "uci": "c5c4",
+   "fen": "1rb1kb1r/pp1pqpp1/B4p1p/8/2p1P3/5N2/PPPP1PPP/R1BQR1K1 w k - 0 10",
+   "by": "opponent"
+  },
+  {
+   "san": "Bxc4",
+   "uci": "a6c4",
+   "fen": "1rb1kb1r/pp1pqpp1/5p1p/8/2B1P3/5N2/PPPP1PPP/R1BQR1K1 b k - 0 10",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bxc4",
+      "p": 0.72
+     },
+     {
+      "san": "Ne5",
+      "p": 0.07
+     },
+     {
+      "san": "c3",
+      "p": 0.05
+     },
+     {
+      "san": "Rb1",
+      "p": 0.04
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bxc4",
+      "reply": "Qxe4"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "c3",
+      "reply": "bxa6"
+     }
+    ],
+    "final": [
+     {
+      "san": "Bxc4",
+      "p": 0.63
+     },
+     {
+      "san": "c3",
+      "p": 0.31
+     },
+     {
+      "san": "Ne5",
+      "p": 0.06
+     }
+    ],
+    "latencyMs": 1895
+   }
+  },
+  {
+   "san": "Qc5",
+   "uci": "e7c5",
+   "fen": "1rb1kb1r/pp1p1pp1/5p1p/2q5/2B1P3/5N2/PPPP1PPP/R1BQR1K1 w k - 1 11",
+   "by": "opponent"
+  },
+  {
+   "san": "Bxf7+",
+   "uci": "c4f7",
+   "fen": "1rb1kb1r/pp1p1Bp1/5p1p/2q5/4P3/5N2/PPPP1PPP/R1BQR1K1 b k - 0 11",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Bxf7+",
+      "p": 0.78
+     },
+     {
+      "san": "Ne5",
+      "p": 0.05
+     },
+     {
+      "san": "Rb1",
+      "p": 0.03
+     },
+     {
+      "san": "c3",
+      "p": 0.03
+     }
+    ],
+    "replies": [
+     {
+      "move": "Bxf7+",
+      "reply": "Kxf7"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "Rb1",
+      "reply": "Qxf2+"
+     }
+    ],
+    "final": [
+     {
+      "san": "Bxf7+",
+      "p": 0.74
+     },
+     {
+      "san": "Ne5",
+      "p": 0.14
+     },
+     {
+      "san": "Rb1",
+      "p": 0.12
+     }
+    ],
+    "latencyMs": 1982
+   }
+  },
+  {
+   "san": "Kd8",
+   "uci": "e8d8",
+   "fen": "1rbk1b1r/pp1p1Bp1/5p1p/2q5/4P3/5N2/PPPP1PPP/R1BQR1K1 w - - 1 12",
+   "by": "opponent"
+  },
+  {
+   "san": "e5",
+   "uci": "e4e5",
+   "fen": "1rbk1b1r/pp1p1Bp1/5p1p/2q1P3/8/5N2/PPPP1PPP/R1BQR1K1 b - - 0 12",
+   "by": "jev",
+   "jev": {
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Be8",
+      "p": 0.38
+     },
+     {
+      "san": "Ne5",
+      "p": 0.16
+     },
+     {
+      "san": "e5",
+      "p": 0.08
+     },
+     {
+      "san": "Kf1",
+      "p": 0.08
+     }
+    ],
+    "replies": [
+     {
+      "move": "Be8",
+      "reply": "Kxe8"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "e5",
+      "reply": "Qxe5"
+     }
+    ],
+    "final": [
+     {
+      "san": "e5",
+      "p": 0.53
+     },
+     {
+      "san": "Be8",
+      "p": 0.38
+     },
+     {
+      "san": "Ne5",
+      "p": 0.09
+     }
+    ],
+    "latencyMs": 2111
+   }
+  },
+  {
+   "san": "fxe5",
+   "uci": "f6e5",
+   "fen": "1rbk1b1r/pp1p1Bp1/7p/2q1p3/8/5N2/PPPP1PPP/R1BQR1K1 w - - 0 13",
+   "by": "opponent"
+  },
+  {
+   "san": "Rxe5",
+   "uci": "e1e5",
+   "fen": "1rbk1b1r/pp1p1Bp1/7p/2q1R3/8/5N2/PPPP1PPP/R1BQ2K1 b - - 0 13",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Rxe5",
+      "p": 0.3
+     },
+     {
+      "san": "Nxe5",
+      "p": 0.3
+     },
+     {
+      "san": "Be8",
+      "p": 0.26
+     },
+     {
+      "san": "Rb1",
+      "p": 0.03
+     }
+    ],
+    "replies": [
+     {
+      "move": "Nxe5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "Rxe5",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "Be8",
+      "reply": "Kxe8"
+     }
+    ],
+    "final": [
+     {
+      "san": "Rxe5",
+      "p": 0.47
+     },
+     {
+      "san": "Be8",
+      "p": 0.33
+     },
+     {
+      "san": "Nxe5",
+      "p": 0.2
+     }
+    ],
+    "latencyMs": 2744
+   }
+  },
+  {
+   "san": "b6",
+   "uci": "b7b6",
+   "fen": "1rbk1b1r/p2p1Bp1/1p5p/2q1R3/8/5N2/PPPP1PPP/R1BQ2K1 w - - 0 14",
+   "by": "opponent"
+  },
+  {
+   "san": "Rxc5",
+   "uci": "e5c5",
+   "fen": "1rbk1b1r/p2p1Bp1/1p5p/2R5/8/5N2/PPPP1PPP/R1BQ2K1 b - - 0 14",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Rxc5",
+      "p": 0.92
+     },
+     {
+      "san": "Be8",
+      "p": 0.05
+     },
+     {
+      "san": "Nd4",
+      "p": 0.02
+     },
+     {
+      "san": "Rb1",
+      "p": 0.01
+     }
+    ],
+    "replies": [
+     {
+      "move": "Rxc5",
+      "reply": "Bxc5"
+     },
+     {
+      "move": "Be8",
+      "reply": "Qxe5"
+     },
+     {
+      "move": "Nd4",
+      "reply": "Qxd4"
+     }
+    ],
+    "final": [
+     {
+      "san": "Rxc5",
+      "p": 0.76
+     },
+     {
+      "san": "Be8",
+      "p": 0.2
+     },
+     {
+      "san": "Nd4",
+      "p": 0.04
+     }
+    ],
+    "latencyMs": 2754
+   }
+  },
+  {
+   "san": "a6",
+   "uci": "a7a6",
+   "fen": "1rbk1b1r/3p1Bp1/pp5p/2R5/8/5N2/PPPP1PPP/R1BQ2K1 w - - 0 15",
+   "by": "opponent"
+  },
+  {
+   "san": "Rxc8+",
+   "uci": "c5c8",
+   "fen": "1rRk1b1r/3p1Bp1/pp5p/8/8/5N2/PPPP1PPP/R1BQ2K1 b - - 0 15",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Rxc8+",
+      "p": 0.85
+     },
+     {
+      "san": "Be8",
+      "p": 0.11
+     },
+     {
+      "san": "Ne5",
+      "p": 0.02
+     },
+     {
+      "san": "Rb1",
+      "p": 0.01
+     }
+    ],
+    "replies": [
+     {
+      "move": "Rxc8+",
+      "reply": "Rxc8"
+     },
+     {
+      "move": "Be8",
+      "reply": "Kxe8"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Bxc5"
+     }
+    ],
+    "final": [
+     {
+      "san": "Rxc8+",
+      "p": 0.68
+     },
+     {
+      "san": "Ne5",
+      "p": 0.2
+     },
+     {
+      "san": "Be8",
+      "p": 0.12
+     }
+    ],
+    "latencyMs": 2427
+   }
+  },
+  {
+   "san": "Ke7",
+   "uci": "d8e7",
+   "fen": "1rR2b1r/3pkBp1/pp5p/8/8/5N2/PPPP1PPP/R1BQ2K1 w - - 1 16",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe1+",
+   "uci": "d1e1",
+   "fen": "1rR2b1r/3pkBp1/pp5p/8/8/5N2/PPPP1PPP/R1B1Q1K1 b - - 2 16",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Re8+",
+      "p": 0.66
+     },
+     {
+      "san": "Qe1+",
+      "p": 0.14
+     },
+     {
+      "san": "Be8",
+      "p": 0.13
+     },
+     {
+      "san": "Ne5",
+      "p": 0.05
+     }
+    ],
+    "replies": [
+     {
+      "move": "Re8+",
+      "reply": "Rxe8"
+     },
+     {
+      "move": "Qe1+",
+      "reply": "Kxf7"
+     },
+     {
+      "move": "Be8",
+      "reply": "Rxc8"
+     }
+    ],
+    "final": [
+     {
+      "san": "Qe1+",
+      "p": 0.36
+     },
+     {
+      "san": "Be8",
+      "p": 0.33
+     },
+     {
+      "san": "Re8+",
+      "p": 0.31
+     }
+    ],
+    "latencyMs": 2341
+   }
+  },
+  {
+   "san": "Kf6",
+   "uci": "e7f6",
+   "fen": "1rR2b1r/3p1Bp1/pp3k1p/8/8/5N2/PPPP1PPP/R1B1Q1K1 w - - 3 17",
+   "by": "opponent"
+  },
+  {
+   "san": "Rxf8",
+   "uci": "c8f8",
+   "fen": "1r3R1r/3p1Bp1/pp3k1p/8/8/5N2/PPPP1PPP/R1B1Q1K1 b - - 0 17",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qe6+",
+      "p": 0.49
+     },
+     {
+      "san": "Rxf8",
+      "p": 0.41
+     },
+     {
+      "san": "Ne5",
+      "p": 0.05
+     },
+     {
+      "san": "Be6",
+      "p": 0.04
+     }
+    ],
+    "replies": [
+     {
+      "move": "Qe6+",
+      "reply": "dxe6"
+     },
+     {
+      "move": "Rxf8",
+      "reply": "Rbxf8"
+     },
+     {
+      "move": "Ne5",
+      "reply": "Rxc8"
+     }
+    ],
+    "final": [
+     {
+      "san": "Rxf8",
+      "p": 0.65
+     },
+     {
+      "san": "Ne5",
+      "p": 0.28
+     },
+     {
+      "san": "Qe6+",
+      "p": 0.07
+     }
+    ],
+    "latencyMs": 2356
+   }
+  },
+  {
+   "san": "Rb7",
+   "uci": "b8b7",
+   "fen": "5R1r/1r1p1Bp1/pp3k1p/8/8/5N2/PPPP1PPP/R1B1Q1K1 w - - 1 18",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe5#",
+   "uci": "e1e5",
+   "fen": "5R1r/1r1p1Bp1/pp3k1p/4Q3/8/5N2/PPPP1PPP/R1B3K1 b - - 2 18",
+   "by": "jev",
+   "jev": {
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qe5#",
+      "p": 0.99
+     },
+     {
+      "san": "Rxh8",
+      "p": 0.01
+     }
+    ],
+    "replies": [
+     {
+      "move": "Rxh8",
+      "reply": "Kxf7"
+     },
+     {
+      "move": "Rb1",
+      "reply": "Rxf8"
+     }
+    ],
+    "final": [
+     {
+      "san": "Qe5#",
+      "p": 1
+     }
+    ],
+    "latencyMs": 2143
+   }
+  }
+ ]
+}

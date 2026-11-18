@@ -1,6 +1,12 @@
 import { Chess, type PieceSymbol, type Square } from 'chess.js';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent, type PointerEvent } from 'react';
+import { ReplayPanel, replay } from './Replay';
 type BoardMode = 'DOM' | 'Canvas';
+type View = 'play' | 'replay';
+// Set by the GitHub Pages build. The hosted page has no backend or extension, so Jev cannot play live there.
+const HOSTED = import.meta.env.VITE_HOSTED === '1';
+const REPO_URL = 'https://github.com/shihabalratul/Jev-chess';
+const REPLAY_STEP_MS = 1400;
 type Promotion = 'q' | 'r' | 'b' | 'n';
 const files = 'abcdefgh';
 const whiteSymbols: Record<PieceSymbol, string> = { k: '♔', q: '♕', r: '♖', b: '♗', n: '♘', p: '♙' };
@@ -45,18 +51,26 @@ export default function App() {
     const [mode, setMode] = useState<BoardMode>('DOM');
     const [flipped, setFlipped] = useState(false);
     const [selected, setSelected] = useState<Square | null>(null);
-    const [mockOpponent, setMockOpponent] = useState(false);
+    const [mockOpponent, setMockOpponent] = useState(HOSTED);
+    const [view, setView] = useState<View>(HOSTED ? 'replay' : 'play');
+    const [replayIndex, setReplayIndex] = useState(0);
+    const [replayPlaying, setReplayPlaying] = useState(false);
     const [fenInput, setFenInput] = useState(new Chess().fen());
     const [fenError, setFenError] = useState('');
     const [promotionMove, setPromotionMove] = useState<{
         from: Square;
         to: Square;
     } | null>(null);
-    const game = gameRef.current;
+    const playGame = gameRef.current;
+    const replayBoard = useMemo(() => new Chess(replayIndex > 0 ? replay.plies[replayIndex - 1].fen : undefined), [replayIndex]);
+    const isReplay = view === 'replay';
+    // `game` is whatever the board shows: the live game, or the replay position (read-only).
+    const game = isReplay ? replayBoard : playGame;
+    const lastMove = isReplay && replayIndex > 0 ? replay.plies[replayIndex - 1].uci : null;
     const squares = useMemo(() => orderedSquares(flipped), [flipped]);
-    const fen = game.fen();
-    const history = game.history();
-    const status = getStatus(game);
+    const fen = playGame.fen();
+    const history = playGame.history();
+    const status = isReplay && replayIndex === 0 ? 'Jev plays White' : getStatus(game);
     const refresh = useCallback(() => setRevision((value) => value + 1), []);
     const tryMove = useCallback((from: Square, to: Square, promotion?: Promotion) => {
         const activeGame = gameRef.current;
@@ -111,9 +125,11 @@ export default function App() {
         return rect ? squareFromPoint(event.clientX, event.clientY, rect, flipped) : null;
     };
     const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-        dragFromRef.current = eventSquare(event);
+        dragFromRef.current = isReplay ? null : eventSquare(event);
     };
     const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+        if (isReplay)
+            return;
         const from = dragFromRef.current;
         const to = eventSquare(event);
         dragFromRef.current = null;
@@ -121,6 +137,8 @@ export default function App() {
             tryMove(from, to);
     };
     const onBoardClick = (event: MouseEvent<HTMLDivElement>) => {
+        if (isReplay)
+            return;
         if (mode === 'DOM') {
             const target = event.target as HTMLElement;
             const squareElement = target.closest<HTMLElement>('[data-square]');
@@ -183,8 +201,12 @@ export default function App() {
                 const isLight = (files.indexOf(square[0]) + Number(square[1])) % 2 === 0;
                 context.fillStyle = isLight ? '#eadfcb' : '#748866';
                 context.fillRect(col * cell, row * cell, cell, cell);
-                if (selected === square) {
+                if (selected === square && !isReplay) {
                     context.fillStyle = 'rgba(225, 188, 74, .55)';
+                    context.fillRect(col * cell, row * cell, cell, cell);
+                }
+                if (lastMove && (lastMove.slice(0, 2) === square || lastMove.slice(2, 4) === square)) {
+                    context.fillStyle = 'rgba(225, 188, 74, .38)';
                     context.fillRect(col * cell, row * cell, cell, cell);
                 }
                 const piece = game.get(square);
@@ -208,20 +230,21 @@ export default function App() {
             observer.disconnect();
             window.removeEventListener('resize', draw);
         };
-    }, [game, flipped, mode, revision, selected]);
+    }, [game, flipped, mode, revision, selected, isReplay, lastMove]);
     useEffect(() => {
         if (mockTimerRef.current !== undefined) {
             window.clearTimeout(mockTimerRef.current);
             mockTimerRef.current = undefined;
         }
-        if (!mockOpponent || game.turn() !== 'b' || game.isGameOver())
+        if (!mockOpponent || playGame.turn() !== 'b' || playGame.isGameOver())
             return;
         mockTimerRef.current = window.setTimeout(() => {
             mockTimerRef.current = undefined;
             const current = gameRef.current;
             const replies = current.moves({ verbose: true });
             if (replies.length && current.turn() === 'b' && !current.isGameOver()) {
-                current.move(replies[0]);
+                // Local tests rely on the deterministic first move; the hosted page varies it to feel alive.
+                current.move(HOSTED ? replies[Math.floor(Math.random() * replies.length)] : replies[0]);
                 setSelected(null);
                 setFenInput(current.fen());
                 refresh();
@@ -233,7 +256,33 @@ export default function App() {
                 mockTimerRef.current = undefined;
             }
         };
-    }, [game, mockOpponent, revision, refresh]);
+    }, [playGame, mockOpponent, revision, refresh]);
+    useEffect(() => {
+        if (!isReplay || !replayPlaying)
+            return;
+        if (replayIndex >= replay.plies.length) {
+            setReplayPlaying(false);
+            return;
+        }
+        const timer = window.setTimeout(() => setReplayIndex((index) => Math.min(index + 1, replay.plies.length)), replayIndex === 0 ? 300 : REPLAY_STEP_MS);
+        return () => window.clearTimeout(timer);
+    }, [isReplay, replayPlaying, replayIndex]);
+    const seekReplay = (index: number) => {
+        setReplayPlaying(false);
+        setReplayIndex(Math.max(0, Math.min(index, replay.plies.length)));
+    };
+    const toggleReplay = () => {
+        if (replayPlaying)
+            return setReplayPlaying(false);
+        if (replayIndex >= replay.plies.length)
+            setReplayIndex(0);
+        setReplayPlaying(true);
+    };
+    const switchView = (next: View) => {
+        setView(next);
+        setReplayPlaying(false);
+        setSelected(null);
+    };
     useEffect(() => () => {
         if (mockTimerRef.current !== undefined)
             window.clearTimeout(mockTimerRef.current);
@@ -248,13 +297,24 @@ export default function App() {
         <a className="brand" href="#top" aria-label="JevChess Board Lab home">
           <span className="brand-mark">J</span><span>JevChess <span className="brand-light">/ Board Lab</span></span>
         </a>
-        <span className="topbar-note"><span className="live-dot"/> Local demo · no account required</span>
+        <span className="topbar-note"><span className="live-dot"/> {HOSTED ? 'Hosted demo · runs in your browser' : 'Local demo · no account required'}</span>
       </header>
+
+      {HOSTED && <aside className="hosted-banner" role="note">
+        <span className="banner-icon" aria-hidden="true">♞</span>
+        <p><strong>This is the JevChess Board Lab.</strong> The Jev AI plays through the Chrome extension and a backend running on your own computer, so it can't play live on this page.
+          Watch a <strong>real recorded Jev game</strong> below, or switch to <em>Play</em> and try the board yourself.</p>
+        <a href={`${REPO_URL}#-quick-start`} target="_blank" rel="noreferrer">Run Jev yourself →</a>
+      </aside>}
 
       <section className="workspace" id="top">
         <div className="board-column">
+          <div className="view-tabs" role="tablist" aria-label="Board mode">
+            <button type="button" role="tab" aria-selected={isReplay} onClick={() => switchView('replay')}>▶ Watch Jev play</button>
+            <button type="button" role="tab" aria-selected={!isReplay} onClick={() => switchView('play')}>♟ Play</button>
+          </div>
           <div className="page-heading">
-            <div><p className="eyebrow">INTERACTIVE BOARD</p><h1>Make your next move.</h1></div>
+            <div><p className="eyebrow">{isReplay ? 'REPLAY · REAL JEV GAME' : 'INTERACTIVE BOARD'}</p><h1>{isReplay ? 'Jev vs a random mover.' : 'Make your next move.'}</h1></div>
             <div className="turn-indicator"><span className={`turn-piece ${game.turn() === 'w' ? 'white-token' : 'black-token'}`}>{game.turn() === 'w' ? '♙' : '♟'}</span><span>{status}</span></div>
           </div>
 
@@ -267,9 +327,10 @@ export default function App() {
                 {mode === 'DOM' ? squares.map((square) => {
             const piece = game.get(square);
             const isLight = (files.indexOf(square[0]) + Number(square[1])) % 2 === 0;
-            const isSelected = selected === square;
+            const isSelected = selected === square && !isReplay;
+            const isLastMove = !!lastMove && (lastMove.slice(0, 2) === square || lastMove.slice(2, 4) === square);
             const label = piece ? `${square}, ${piece.color === 'w' ? 'white' : 'black'} ${pieceNames[piece.type]}` : square;
-            return (<div key={square} role="gridcell" tabIndex={0} className={`square ${isLight ? 'light' : 'dark'}${isSelected ? ' selected' : ''}`} data-square={square} {...(piece ? { 'data-piece': piece.color === 'w' ? piece.type.toUpperCase() : piece.type } : {})} aria-label={label}>
+            return (<div key={square} role="gridcell" tabIndex={0} className={`square ${isLight ? 'light' : 'dark'}${isSelected ? ' selected' : ''}${isLastMove ? ' last-move' : ''}`} data-square={square} {...(piece ? { 'data-piece': piece.color === 'w' ? piece.type.toUpperCase() : piece.type } : {})} aria-label={label}>
                       {piece && <span className={`piece ${piece.color === 'w' ? 'piece-white' : 'piece-black'}`} aria-hidden="true">{(piece.color === 'w' ? whiteSymbols : blackSymbols)[piece.type]}</span>}
                       {square[0] === (flipped ? 'h' : 'a') && <span className="rank-label" aria-hidden="true">{square[1]}</span>}
                       {square[1] === (flipped ? '8' : '1') && <span className="file-label" aria-hidden="true">{square[0]}</span>}
@@ -294,6 +355,7 @@ export default function App() {
         </div>
 
         <aside className="side-panel">
+          {isReplay ? <ReplayPanel index={replayIndex} playing={replayPlaying} onSeek={seekReplay} onTogglePlay={toggleReplay}/> : <>
           <section className="panel-card controls-card">
             <div className="card-heading"><div><p className="eyebrow">GAME CONTROLS</p><h2>Set the board</h2></div><span className="heading-icon">♞</span></div>
 
@@ -314,7 +376,7 @@ export default function App() {
               <input type="checkbox" checked={mockOpponent} onChange={(event) => setMockOpponent(event.target.checked)}/>
               <span className="toggle-track" aria-hidden="true"><span /></span>
             </label>
-            <p className="helper-text">A local demo move follows after about a second. Connect an extension for an external AI opponent.</p>
+            <p className="helper-text">{HOSTED ? 'A random legal reply follows after about a second. To play against Jev itself, run the extension and backend locally.' : 'A local demo move follows after about a second. Connect an extension for an external AI opponent.'}</p>
 
             <button className="reset-button" type="button" onClick={resetGame}><span>↺</span> New game</button>
           </section>
@@ -334,9 +396,10 @@ export default function App() {
               <button type="submit" className="load-button">Load FEN <span>→</span></button>
             </form>
           </section>
+          </>}
         </aside>
       </section>
 
-      <footer className="footer"><span>JevChess Board Lab</span><span>Local rules powered by chess.js</span></footer>
+      <footer className="footer"><span>JevChess Board Lab{HOSTED && <> · <a href={REPO_URL} target="_blank" rel="noreferrer">GitHub</a></>}</span><span>Local rules powered by chess.js</span></footer>
     </main>);
 }

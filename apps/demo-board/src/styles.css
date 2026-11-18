@@ -109,6 +109,48 @@ h2 { margin: 0; color: #2f3d34; font: 700 16px Manrope, sans-serif; letter-spaci
 .promotion-options button { aspect-ratio: 1; border: 1px solid #e6e7de; border-radius: 9px; background: #f4f4ee; color: #304237; font: 34px 'DejaVu Sans', serif; cursor: pointer; }
 .promotion-options button:hover { border-color: #95a88e; background: #eaf0e5; }
 
+/* Hosted banner, view tabs and Jev replay */
+.hosted-banner { display: flex; align-items: center; gap: 14px; max-width: 1100px; margin: 22px auto 0; padding: 14px 18px; border: 1px solid #dfe6d9; border-radius: 12px; background: #edf2e8; color: #3d5143; font-size: 12px; line-height: 1.55; }
+.hosted-banner p { margin: 0; flex: 1; }
+.banner-icon { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: #385844; color: #f5f1e6; font-size: 20px; }
+.hosted-banner a { flex: none; border-radius: 7px; padding: 8px 12px; background: #385a44; color: white; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.hosted-banner a:hover { background: #2e4d39; }
+.footer a { color: inherit; }
+.view-tabs { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 18px; padding: 3px; border-radius: 9px; background: #e9e7de; }
+.view-tabs button { border: 0; border-radius: 7px; padding: 8px 14px; background: transparent; color: #6f786f; font-size: 12px; font-weight: 600; cursor: pointer; }
+.view-tabs button[aria-selected="true"] { background: #fffefa; color: #2f4c3a; box-shadow: 0 1px 4px rgba(34, 45, 35, .12); }
+.square.last-move { background-image: linear-gradient(rgba(225, 188, 74, .38), rgba(225, 188, 74, .38)); }
+.replay-intro { margin: 0 0 14px; color: #7d867c; font-size: 11px; line-height: 1.55; }
+.replay-controls { display: grid; grid-template-columns: 1fr 1fr 2.4fr 1fr 1fr; gap: 5px; }
+.replay-controls button { border: 1px solid #e3e6dc; border-radius: 7px; padding: 8px 0; background: #f6f8f3; color: #44624a; font-size: 12px; cursor: pointer; }
+.replay-controls button:disabled { opacity: .4; cursor: default; }
+.replay-controls .play-button { border-color: #385a44; background: #385a44; color: white; font-weight: 700; }
+.replay-controls .play-button:hover { background: #2e4d39; }
+.replay-progress { margin: 10px 0 0; color: #9aa096; font: 500 9px 'DM Mono', monospace; }
+.thinking { display: grid; gap: 14px; }
+.stage { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+.stage p { margin: 5px 0 0; color: #5d685f; font-size: 11px; line-height: 1.5; }
+.stage-step { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #edf1e9; color: #496a50; font: 700 10px Manrope, sans-serif; }
+.prob-bars, .reply-list { margin: 7px 0 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.prob-bars li { display: grid; grid-template-columns: 54px 1fr 34px; gap: 8px; align-items: center; font: 500 11px 'DM Mono', monospace; color: #5b665d; }
+.prob-track { height: 7px; border-radius: 4px; background: #f0efe8; overflow: hidden; }
+.prob-track span { display: block; height: 100%; border-radius: 4px; background: #b7c4b0; }
+.prob-bars li.chosen { color: #2f4c3a; font-weight: 700; }
+.prob-bars li.chosen .prob-track span { background: #55795b; }
+.prob-value { text-align: right; color: #8d958b; }
+.reply-list li { display: flex; gap: 8px; font: 500 11px 'DM Mono', monospace; color: #5b665d; }
+.reply-arrow { color: #a5ab9f; }
+.replay-moves { max-height: 190px; }
+.move-jump { border: 0; border-radius: 4px; padding: 1px 4px; margin-left: -4px; background: transparent; text-align: left; font: inherit; cursor: pointer; justify-self: start; }
+.move-jump:hover { background: #f0f2ec; }
+.move-jump.current { background: #385a44; color: white; }
+.replay-meta { margin: 12px 0 0; color: #9aa096; font-size: 9px; line-height: 1.55; }
+.replay-meta code { font: 9px 'DM Mono', monospace; }
+@media (max-width: 720px) {
+  .hosted-banner { flex-wrap: wrap; margin-top: 16px; }
+  .hosted-banner a { width: 100%; text-align: center; }
+}
+
 @media (max-width: 900px) {
   .app-shell { padding: 0 28px 24px; }
   .workspace { grid-template-columns: minmax(350px, 1fr) 300px; gap: 30px; }
