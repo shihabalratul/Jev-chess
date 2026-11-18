@@ -35,7 +35,7 @@ What mock mode does:
 | Step | Live mode | Mock mode |
 |---|---|---|
 | Reading the board | Vision model (DOM or screenshot) | Reads `data-piece` / `data-square` attributes from the demo board's DOM |
-| Choosing a move | Jev's six-stage decision | Same six-stage pipeline, but every question takes its first option |
+| Choosing a move | Jev's staged decision (up to six stages) | Same staged pipeline, but every question takes its first option |
 | Moving and verifying | Real | Real (the extension still clicks and verifies) |
 
 So mock mode is great for **trying the extension, developing and running tests**, but:
@@ -61,7 +61,7 @@ PROVIDER_MODE=live
 pnpm dev:server
 ```
 
-Each decision makes several model calls (six Jev stages, plus vision when a screenshot is needed), so watch your OpenRouter usage.
+Each decision makes several model calls (up to six Jev stages, plus vision when a screenshot is needed), so watch your OpenRouter usage. For reference, a whole casual 10+5 Lichess game cost about $0.01–0.10 in the first test series.
 The key **only lives in the backend** and is never sent to the extension or any web page.
 
 ## 3. Start the Board Lab

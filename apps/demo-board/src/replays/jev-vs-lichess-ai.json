@@ -1,0 +1,1288 @@
+{
+ "title": "Jev vs Lichess AI level 2",
+ "description": "A real game on Lichess: Jev played White on a BOT account through the official Bot API against Lichess AI level 2 (10+5, casual). Every Jev move below is its own recorded decision.",
+ "source": {
+  "site": "Lichess",
+  "url": "https://lichess.org/P5cyQ6JG",
+  "opponent": "Lichess AI level 2",
+  "timeControl": "10+5"
+ },
+ "jevColor": "white",
+ "model": "typesafe/jev-1.13",
+ "date": "2026-11-18",
+ "result": "Jev wins by checkmate",
+ "totalCostUsd": 0.03,
+ "plies": [
+  {
+   "san": "e4",
+   "uci": "e2e4",
+   "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 2693,
+    "costUsd": 0.0005,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.92
+    },
+    "nominated": 10,
+    "shortlist": [
+     {
+      "san": "e4",
+      "p": 0.82
+     },
+     {
+      "san": "Nf3",
+      "p": 0.1
+     },
+     {
+      "san": "d4",
+      "p": 0.06
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "e4",
+      "p": 0.65
+     },
+     {
+      "san": "d4",
+      "p": 0.24
+     },
+     {
+      "san": "Nf3",
+      "p": 0.11
+     }
+    ]
+   }
+  },
+  {
+   "san": "e6",
+   "uci": "e7e6",
+   "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+   "by": "opponent"
+  },
+  {
+   "san": "Qg4",
+   "uci": "d1g4",
+   "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P1Q1/8/PPPP1PPP/RNB1KBNR b KQkq - 1 2",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4262,
+    "costUsd": 0.00066,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.9
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qg4",
+      "p": 0.71
+     },
+     {
+      "san": "Nf3",
+      "p": 0.11
+     },
+     {
+      "san": "d4",
+      "p": 0.1
+     },
+     {
+      "san": "e5",
+      "p": 0.04
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qg4",
+      "p": 0.83
+     },
+     {
+      "san": "d4",
+      "p": 0.1
+     },
+     {
+      "san": "Nf3",
+      "p": 0.07
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nf6",
+   "uci": "g8f6",
+   "fen": "rnbqkb1r/pppp1ppp/4pn2/8/4P1Q1/8/PPPP1PPP/RNB1KBNR w KQkq - 2 3",
+   "by": "opponent"
+  },
+  {
+   "san": "Qf4",
+   "uci": "g4f4",
+   "fen": "rnbqkb1r/pppp1ppp/4pn2/8/4PQ2/8/PPPP1PPP/RNB1KBNR b KQkq - 3 3",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4638,
+    "costUsd": 0.00085,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.93
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qf4",
+      "p": 1
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qf4",
+      "p": 0.99
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nh5",
+   "uci": "f6h5",
+   "fen": "rnbqkb1r/pppp1ppp/4p3/7n/4PQ2/8/PPPP1PPP/RNB1KBNR w KQkq - 4 4",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe5",
+   "uci": "f4e5",
+   "fen": "rnbqkb1r/pppp1ppp/4p3/4Q2n/4P3/8/PPPP1PPP/RNB1KBNR b KQkq - 5 4",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4554,
+    "costUsd": 0.00087,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.95
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qe5",
+      "p": 0.98
+     },
+     {
+      "san": "d3",
+      "p": 0.01
+     },
+     {
+      "san": "Ne2",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qe5",
+      "p": 0.9
+     },
+     {
+      "san": "d3",
+      "p": 0.07
+     },
+     {
+      "san": "Ne2",
+      "p": 0.03
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nf6",
+   "uci": "h5f6",
+   "fen": "rnbqkb1r/pppp1ppp/4pn2/4Q3/4P3/8/PPPP1PPP/RNB1KBNR w KQkq - 6 5",
+   "by": "opponent"
+  },
+  {
+   "san": "Qf4",
+   "uci": "e5f4",
+   "fen": "rnbqkb1r/pppp1ppp/4pn2/8/4PQ2/8/PPPP1PPP/RNB1KBNR b KQkq - 7 5",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 5321,
+    "costUsd": 0.00077,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.74
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qf4",
+      "p": 0.86
+     },
+     {
+      "san": "Nf3",
+      "p": 0.07
+     },
+     {
+      "san": "Nc3",
+      "p": 0.02
+     },
+     {
+      "san": "d4",
+      "p": 0.02
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qf4",
+      "p": 0.92
+     },
+     {
+      "san": "Nf3",
+      "p": 0.04
+     },
+     {
+      "san": "Nc3",
+      "p": 0.04
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nh5",
+   "uci": "f6h5",
+   "fen": "rnbqkb1r/pppp1ppp/4p3/7n/4PQ2/8/PPPP1PPP/RNB1KBNR w KQkq - 8 6",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe5",
+   "uci": "f4e5",
+   "fen": "rnbqkb1r/pppp1ppp/4p3/4Q2n/4P3/8/PPPP1PPP/RNB1KBNR b KQkq - 9 6",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4339,
+    "costUsd": 0.00089,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.94
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qe5",
+      "p": 0.98
+     },
+     {
+      "san": "d3",
+      "p": 0.01
+     },
+     {
+      "san": "Ne2",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qe5",
+      "p": 0.87
+     },
+     {
+      "san": "d3",
+      "p": 0.08
+     },
+     {
+      "san": "Ne2",
+      "p": 0.05
+     }
+    ]
+   }
+  },
+  {
+   "san": "f5",
+   "uci": "f7f5",
+   "fen": "rnbqkb1r/pppp2pp/4p3/4Qp1n/4P3/8/PPPP1PPP/RNB1KBNR w KQkq - 0 7",
+   "by": "opponent"
+  },
+  {
+   "san": "exf5",
+   "uci": "e4f5",
+   "fen": "rnbqkb1r/pppp2pp/4p3/4QP1n/8/8/PPPP1PPP/RNB1KBNR b KQkq - 0 7",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 6338,
+    "costUsd": 0.00085,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.54
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qxf5",
+      "p": 0.57
+     },
+     {
+      "san": "exf5",
+      "p": 0.26
+     },
+     {
+      "san": "Be2",
+      "p": 0.1
+     },
+     {
+      "san": "g4",
+      "p": 0.05
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "exf5",
+      "p": 0.5
+     },
+     {
+      "san": "Qxf5",
+      "p": 0.43
+     },
+     {
+      "san": "Be2",
+      "p": 0.07
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nf6",
+   "uci": "h5f6",
+   "fen": "rnbqkb1r/pppp2pp/4pn2/4QP2/8/8/PPPP1PPP/RNB1KBNR w KQkq - 1 8",
+   "by": "opponent"
+  },
+  {
+   "san": "fxe6",
+   "uci": "f5e6",
+   "fen": "rnbqkb1r/pppp2pp/4Pn2/4Q3/8/8/PPPP1PPP/RNB1KBNR b KQkq - 0 8",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose",
+     "verify"
+    ],
+    "latencyMs": 7929,
+    "costUsd": 0.00104,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.63
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qxe6+",
+      "p": 0.77
+     },
+     {
+      "san": "fxe6",
+      "p": 0.21
+     },
+     {
+      "san": "Bc4",
+      "p": 0.01
+     },
+     {
+      "san": "Nf3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qxe6+",
+      "p": 0.49
+     },
+     {
+      "san": "fxe6",
+      "p": 0.49
+     },
+     {
+      "san": "Bc4",
+      "p": 0.02
+     }
+    ],
+    "verify": {
+     "flagged": "Qxe6+",
+     "warnings": [
+      "It leaves your queen on e6 exposed (attacked 1x, defended 1x) while capturing 1 points."
+     ],
+     "final": [
+      {
+       "san": "fxe6",
+       "p": 0.38
+      },
+      {
+       "san": "Qb5",
+       "p": 0.12
+      },
+      {
+       "san": "Qf4",
+       "p": 0.1
+      }
+     ],
+     "changed": true
+    }
+   }
+  },
+  {
+   "san": "Be7",
+   "uci": "f8e7",
+   "fen": "rnbqk2r/ppppb1pp/4Pn2/4Q3/8/8/PPPP1PPP/RNB1KBNR w KQkq - 1 9",
+   "by": "opponent"
+  },
+  {
+   "san": "Qf5",
+   "uci": "e5f5",
+   "fen": "rnbqk2r/ppppb1pp/4Pn2/5Q2/8/8/PPPP1PPP/RNB1KBNR b KQkq - 2 9",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 7700,
+    "costUsd": 0.00085,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.69
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "Qf5",
+      "p": 0.47
+     },
+     {
+      "san": "exd7+",
+      "p": 0.38
+     },
+     {
+      "san": "Bb5",
+      "p": 0.1
+     },
+     {
+      "san": "Nf3",
+      "p": 0.02
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qf5",
+      "p": 0.57
+     },
+     {
+      "san": "exd7+",
+      "p": 0.32
+     },
+     {
+      "san": "Bb5",
+      "p": 0.11
+     }
+    ]
+   }
+  },
+  {
+   "san": "Nc6",
+   "uci": "b8c6",
+   "fen": "r1bqk2r/ppppb1pp/2n1Pn2/5Q2/8/8/PPPP1PPP/RNB1KBNR w KQkq - 3 10",
+   "by": "opponent"
+  },
+  {
+   "san": "exd7+",
+   "uci": "e6d7",
+   "fen": "r1bqk2r/pppPb1pp/2n2n2/5Q2/8/8/PPPP1PPP/RNB1KBNR b KQkq - 0 10",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 8683,
+    "costUsd": 0.00085,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.78
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "exd7+",
+      "p": 0.93
+     },
+     {
+      "san": "Qg5",
+      "p": 0.05
+     },
+     {
+      "san": "Bb5",
+      "p": 0.01
+     },
+     {
+      "san": "Nf3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "exd7+",
+      "p": 0.96
+     },
+     {
+      "san": "Qg5",
+      "p": 0.02
+     },
+     {
+      "san": "Bb5",
+      "p": 0.02
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kf8",
+   "uci": "e8f8",
+   "fen": "r1bq1k1r/pppPb1pp/2n2n2/5Q2/8/8/PPPP1PPP/RNB1KBNR w KQ - 1 11",
+   "by": "opponent"
+  },
+  {
+   "san": "dxc8=R",
+   "uci": "d7c8r",
+   "fen": "r1Rq1k1r/ppp1b1pp/2n2n2/5Q2/8/8/PPPP1PPP/RNB1KBNR b KQ - 0 11",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose",
+     "verify"
+    ],
+    "latencyMs": 12893,
+    "costUsd": 0.00112,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.88
+    },
+    "nominated": 13,
+    "shortlist": [
+     {
+      "san": "dxc8=Q",
+      "p": 0.78
+     },
+     {
+      "san": "Qe6",
+      "p": 0.21
+     },
+     {
+      "san": "d3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "dxc8=Q",
+      "p": 0.71
+     },
+     {
+      "san": "Qe6",
+      "p": 0.28
+     },
+     {
+      "san": "d3",
+      "p": 0.01
+     }
+    ],
+    "verify": {
+     "flagged": "dxc8=Q",
+     "warnings": [
+      "It leaves your queen on c8 exposed (attacked 2x, defended 1x) while capturing 3 points."
+     ],
+     "final": [
+      {
+       "san": "dxc8=R",
+       "p": 0.74
+      },
+      {
+       "san": "Qe6",
+       "p": 0.12
+      },
+      {
+       "san": "dxc8=N",
+       "p": 0.06
+      }
+     ],
+     "changed": true
+    }
+   }
+  },
+  {
+   "san": "Qxc8",
+   "uci": "d8c8",
+   "fen": "r1q2k1r/ppp1b1pp/2n2n2/5Q2/8/8/PPPP1PPP/RNB1KBNR w KQ - 0 12",
+   "by": "opponent"
+  },
+  {
+   "san": "Qxc8+",
+   "uci": "f5c8",
+   "fen": "r1Q2k1r/ppp1b1pp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 0 12",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 5052,
+    "costUsd": 0.00083,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.88
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Bd3",
+      "p": 0.52
+     },
+     {
+      "san": "Qxc8+",
+      "p": 0.41
+     },
+     {
+      "san": "g4",
+      "p": 0.07
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qxc8+",
+      "p": 0.75
+     },
+     {
+      "san": "Bd3",
+      "p": 0.18
+     },
+     {
+      "san": "g4",
+      "p": 0.07
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kf7",
+   "uci": "f8f7",
+   "fen": "r1Q4r/ppp1bkpp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 1 13",
+   "by": "opponent"
+  },
+  {
+   "san": "Qxc7",
+   "uci": "c8c7",
+   "fen": "r6r/ppQ1bkpp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 0 13",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 5858,
+    "costUsd": 0.00083,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.81
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qxc7",
+      "p": 0.92
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.08
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qxc7",
+      "p": 0.93
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.07
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kg8",
+   "uci": "f7g8",
+   "fen": "r5kr/ppQ1b1pp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 1 14",
+   "by": "opponent"
+  },
+  {
+   "san": "Qxb7",
+   "uci": "c7b7",
+   "fen": "r5kr/pQ2b1pp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 0 14",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 3492,
+    "costUsd": 0.0007,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.97
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qxb7",
+      "p": 0.9
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.1
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qxb7",
+      "p": 0.95
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.05
+     }
+    ]
+   }
+  },
+  {
+   "san": "Rf8",
+   "uci": "a8f8",
+   "fen": "5rkr/pQ2b1pp/2n2n2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 1 15",
+   "by": "opponent"
+  },
+  {
+   "san": "Qxc6",
+   "uci": "b7c6",
+   "fen": "5rkr/p3b1pp/2Q2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 0 15",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4166,
+    "costUsd": 0.00069,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.9
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qxc6",
+      "p": 0.91
+     },
+     {
+      "san": "Bb5",
+      "p": 0.09
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qxc6",
+      "p": 0.97
+     },
+     {
+      "san": "Bb5",
+      "p": 0.03
+     }
+    ]
+   }
+  },
+  {
+   "san": "Re8",
+   "uci": "f8e8",
+   "fen": "4r1kr/p3b1pp/2Q2n2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 1 16",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe6+",
+   "uci": "c6e6",
+   "fen": "4r1kr/p3b1pp/4Qn2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 2 16",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4912,
+    "costUsd": 0.00071,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.89
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qe6+",
+      "p": 0.93
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.07
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qe6+",
+      "p": 0.94
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.06
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kf8",
+   "uci": "g8f8",
+   "fen": "4rk1r/p3b1pp/4Qn2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 3 17",
+   "by": "opponent"
+  },
+  {
+   "san": "Qc6",
+   "uci": "e6c6",
+   "fen": "4rk1r/p3b1pp/2Q2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 4 17",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4101,
+    "costUsd": 0.00071,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.97
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qc6",
+      "p": 0.92
+     },
+     {
+      "san": "Nf3",
+      "p": 0.04
+     },
+     {
+      "san": "Bd3",
+      "p": 0.02
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qc6",
+      "p": 0.86
+     },
+     {
+      "san": "Nf3",
+      "p": 0.07
+     },
+     {
+      "san": "Bd3",
+      "p": 0.07
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kg8",
+   "uci": "f8g8",
+   "fen": "4r1kr/p3b1pp/2Q2n2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 5 18",
+   "by": "opponent"
+  },
+  {
+   "san": "Qe6+",
+   "uci": "c6e6",
+   "fen": "4r1kr/p3b1pp/4Qn2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 6 18",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 5219,
+    "costUsd": 0.0007,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.94
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qe6+",
+      "p": 0.89
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.09
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     },
+     {
+      "san": "Nf3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qe6+",
+      "p": 0.91
+     },
+     {
+      "san": "Bc4+",
+      "p": 0.07
+     },
+     {
+      "san": "Nc3",
+      "p": 0.02
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kf8",
+   "uci": "g8f8",
+   "fen": "4rk1r/p3b1pp/4Qn2/8/8/8/PPPP1PPP/RNB1KBNR w KQ - 7 19",
+   "by": "opponent"
+  },
+  {
+   "san": "Qc6",
+   "uci": "e6c6",
+   "fen": "4rk1r/p3b1pp/2Q2n2/8/8/8/PPPP1PPP/RNB1KBNR b KQ - 8 19",
+   "by": "jev",
+   "jev": {
+    "depth": "reduced",
+    "stages": [
+     "assess",
+     "nominate",
+     "shortlist",
+     "choose"
+    ],
+    "latencyMs": 4069,
+    "costUsd": 0.00071,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.94
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qc6",
+      "p": 0.94
+     },
+     {
+      "san": "Nf3",
+      "p": 0.04
+     },
+     {
+      "san": "Nc3",
+      "p": 0.01
+     },
+     {
+      "san": "Bd3",
+      "p": 0.01
+     }
+    ],
+    "forecasts": 0,
+    "lines": [],
+    "final": [
+     {
+      "san": "Qc6",
+      "p": 0.93
+     },
+     {
+      "san": "Nf3",
+      "p": 0.04
+     },
+     {
+      "san": "Nc3",
+      "p": 0.03
+     }
+    ]
+   }
+  },
+  {
+   "san": "Ng4",
+   "uci": "f6g4",
+   "fen": "4rk1r/p3b1pp/2Q5/8/6n1/8/PPPP1PPP/RNB1KBNR w KQ - 9 20",
+   "by": "opponent"
+  },
+  {
+   "san": "Qf3+",
+   "uci": "c6f3",
+   "fen": "4rk1r/p3b1pp/8/8/6n1/5Q2/PPPP1PPP/RNB1KBNR b KQ - 10 20",
+   "by": "jev",
+   "jev": {
+    "depth": "full",
+    "stages": [
+     "assess",
+     "reply",
+     "nominate",
+     "shortlist",
+     "continue",
+     "choose"
+    ],
+    "latencyMs": 14963,
+    "costUsd": 0.00789,
+    "intent": {
+     "choice": "defensive",
+     "p": 0.64
+    },
+    "nominated": 12,
+    "shortlist": [
+     {
+      "san": "Qf3+",
+      "p": 0.66
+     },
+     {
+      "san": "Be2",
+      "p": 0.1
+     },
+     {
+      "san": "f3",
+      "p": 0.07
+     },
+     {
+      "san": "h3",
+      "p": 0.07
+     }
+    ],
+    "forecasts": 46,
+    "lines": [
+     {
+      "move": "Qf3+",
+      "reply": "Bf6+",
+      "continuation": "Kd1"
+     },
+     {
+      "move": "f3",
+      "reply": "Nxh2",
+      "continuation": "Rxh2"
+     },
+     {
+      "move": "Be2",
+      "reply": "Nxh2",
+      "continuation": "Rxh2"
+     }
+    ],
+    "final": [
+     {
+      "san": "Qf3+",
+      "p": 0.43
+     },
+     {
+      "san": "Be2",
+      "p": 0.39
+     },
+     {
+      "san": "f3",
+      "p": 0.18
+     }
+    ]
+   }
+  },
+  {
+   "san": "Kg8",
+   "uci": "f8g8",
+   "fen": "4r1kr/p3b1pp/8/8/6n1/5Q2/PPPP1PPP/RNB1KBNR w KQ - 11 21",
+   "by": "opponent"
+  },
+  {
+   "san": "Bc4#",
+   "uci": "f1c4",
+   "fen": "4r1kr/p3b1pp/8/8/2B3n1/5Q2/PPPP1PPP/RNB1K1NR b KQ - 12 21",
+   "by": "jev",
+   "jev": {
+    "depth": "full",
+    "stages": [
+     "assess",
+     "reply",
+     "nominate",
+     "shortlist",
+     "continue",
+     "choose"
+    ],
+    "latencyMs": 11635,
+    "costUsd": 0.00701,
+    "intent": {
+     "choice": "offensive",
+     "p": 0.68
+    },
+    "nominated": 11,
+    "shortlist": [
+     {
+      "san": "Bc4#",
+      "p": 1
+     }
+    ],
+    "forecasts": 41,
+    "lines": [
+     {
+      "move": "a4",
+      "reply": "Nxf2",
+      "continuation": "Bc4#"
+     },
+     {
+      "move": "Nc3",
+      "reply": "Nxh2",
+      "continuation": "Bc4#"
+     }
+    ],
+    "final": [
+     {
+      "san": "Bc4#",
+      "p": 1
+     }
+    ]
+   }
+  }
+ ]
+}

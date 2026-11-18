@@ -1,5 +1,30 @@
 # Verification ledger
 
+## Lichess play against Lichess AI (2026-11-18)
+
+Live games on the BOT account against Lichess's built-in AI, casual 10+5, with the Lichess analysis
+changes (clock-based depth, tactical facts, threat headline, blunder check). The games were started
+outside JevChess and selected in the panel. Figures come from the local journals via
+`pnpm lichess:report --json` (offline). Real provider: `typesafe/jev-1.13` through OpenRouter.
+
+| AI level | Game | Jev | Result | Jev moves | Depth mix | Blunder check (fired / changed move) | Cost | Mean s/move |
+|---|---|---|---|---|---|---|---|---|
+| 1 | [6d7SzHji](https://lichess.org/6d7SzHji) | Black | **Win** (mate) | 20 | 18 reduced, 2 full | 2 / 2 | $0.027 | 5.4 |
+| 2 | [P5cyQ6JG](https://lichess.org/P5cyQ6JG) | White | **Win** (mate) | 21 | 19 reduced, 2 full | 2 / 2 | $0.030 | 6.3 |
+| 3 | [YpZXk22j](https://lichess.org/YpZXk22j) | Black | Loss (mated) | 41 | 19 reduced, 22 full | 4 / 2 | $0.099 | 7.1 |
+| 4 | [tA4KYDHR](https://lichess.org/tA4KYDHR) | Black | Loss (mated) | 39 | 20 reduced, 17 full, 2 forced | 21 / 9 | $0.062 | 7.8 |
+| 5 | [5Hz0xSDg](https://lichess.org/5Hz0xSDg) | White | Loss (mated) | 36 | 18 reduced, 15 full, 2 forced, 1 cached | 5 / 5 | $0.103 | 9.2 |
+| 6 | [cZFpxUrM](https://lichess.org/cZFpxUrM) | White | Loss (mated) | 19 | 14 reduced, 1 full, 4 cached | 3 / 1 | $0.011 | 6.1 |
+
+- **Execution:** 176 of 176 Jev moves were submitted and confirmed by the Lichess game stream, with
+  no stalls, retries or clock trouble.
+- **Strength:** wins at levels 1–2 and losses from level 3, so roughly between level 2 and 3. One game
+  per level against a fixed engine cannot separate luck from skill; this is not a rating.
+- **Not verified:** rated games, games against humans, and accepting challenges at scale.
+- The hosted demo's "Watch Jev play" replay is game `P5cyQ6JG`, extracted from session
+  `7055c7aa-088c-4719-8b46-4a16c001f35f`. Every move and stage answer was cross-checked
+  against the Lichess PGN and the journaled positions.
+
 ## Lichess BOT integration 1.3 (2026-10-21)
 
 Separate official API mode reuses the six Jev stages and persistent diagnostics.

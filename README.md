@@ -31,21 +31,23 @@ then checks the board to confirm it really happened. It can also run as a **Lich
 ## ✨ Features
 
 - **Plays on (almost) any board.** Finds chessboards on web pages by DOM structure, square geometry or a cropped screenshot (it even reads `<canvas>` boards).
-- **No engine, only AI choices.** [chess.js](https://github.com/jhlywa/chess.js) supplies the legal moves and rules facts; the Jev model picks among them in a **six-stage decision process** (assess → forecast replies → nominate → shortlist → continuations → final pick).
+- **No engine, only AI choices.** [chess.js](https://github.com/jhlywa/chess.js) supplies the legal moves and rules facts; the Jev model picks among them in a **staged decision process**: up to six stages (assess → forecast replies → nominate → shortlist → continuations → choose).
+- **Clock-aware thinking (Lichess).** Each turn's depth (full, reduced or quick) comes from the remaining clock, plus tactical rule facts and a **blunder check** that asks Jev to reconsider moves that hang a piece or allow mate in one.
 - **Verified moves.** A move only counts once the board is observed to have changed exactly as intended. Anything unexpected pauses play instead of guessing.
 - **Four input modes.** Synthetic click, synthetic drag, and real browser input via the Chrome DevTools Protocol (click or drag).
 - **Lichess BOT mode.** Play through the official Lichess Bot API with a dedicated BOT account. The token stays on your machine.
 - **Keys stay on your machine.** The OpenRouter key lives only in the local backend's `.env` and never reaches the browser.
 - **Full diagnostics.** Every session is journaled to `logs/<session-id>/` (screenshots, FEN, model exchanges) with credentials stripped.
 - **Board Lab.** A local React demo board (DOM or Canvas, flip, FEN loading, mock opponent) for safe experimentation.
-- **Well tested.** 338 unit tests plus Playwright tests that load the real extension.
+- **Well tested.** 340+ unit tests plus Playwright tests that load the real extension.
 
 ## ▶️ Live demo
 
 Play with the **Board Lab** right in your browser: **https://shihabalratul.github.io/Jev-chess/**
 
-- **▶ Watch Jev play:** replay a real recorded game in which Jev beats a random-move opponent, with Jev's
-  shortlist, forecast replies and final probabilities shown for every move.
+- **▶ Watch Jev play:** replay a real Lichess game in which Jev checkmates **Lichess AI level 2**, showing
+  every recorded decision: the stages it ran, its intent, its shortlist, the lines it examined, its final
+  probabilities, and the blunder check that changed one of its moves.
 - **♟ Play:** the Board Lab test board (DOM/Canvas rendering, flip, FEN loading, random-reply opponent).
 
 Live AI play needs the extension and a local backend, so it isn't available on the hosted page; see the quick start below.
@@ -96,7 +98,7 @@ flowchart LR
     A[Web page board] -->|DOM / screenshot| B(Extension)
     B -->|observation| C[Local backend]
     C -->|vision| D[(Vision model)]
-    C -->|legal moves<br/>from chess.js| E[(Jev decision model<br/>6 stages)]
+    C -->|legal moves + rule facts<br/>from chess.js| E[(Jev decision model<br/>up to 6 stages)]
     E -->|chosen move| C --> B
     B -->|click / drag / CDP input| A
     A -->|re-observe & verify| B
@@ -111,7 +113,7 @@ Read the full explanation in **[docs/how-it-works.md](docs/how-it-works.md)**.
 | [Getting started](docs/getting-started.md) | Install, `.env`, mock vs live mode, loading the extension |
 | [Usage guide](docs/usage.md) | Browser board mode, recognition, input modes, Chess.com notes, diagnostics |
 | [Lichess BOT setup](docs/lichess-setup.md) | Dedicated BOT account, token, challenges and controls |
-| [How it works](docs/how-it-works.md) | Pipeline, the six Jev stages, state safety |
+| [How it works](docs/how-it-works.md) | Pipeline, Jev's stages and depth, blunder check, state safety |
 | [Architecture](docs/architecture.md) | Detailed design decisions and boundaries |
 | [Testing](docs/testing.md) | Unit, browser, live (paid) and benchmark commands |
 | [Providers](docs/providers.md) | Model/provider references |
@@ -147,11 +149,19 @@ games against real people, and they *will* notice. JevChess is happiest on the
 
 Your account, your call. Just don't say I didn't warn you. ♟️⚰️
 
+## 📊 How strong is it?
+
+In a first test series on Lichess (2026-11-18, casual 10+5 games against Lichess's built-in AI),
+Jev **beat levels 1 and 2 and lost to levels 3–6**: 2 wins, 4 losses. All 176 moves were submitted and
+confirmed with no stalls, at about $0.01–0.10 per game. That puts it somewhere **between AI level 2 and 3**.
+Six games is a tiny sample, so treat this as a first impression, not a rating. Details are in
+[docs/verification.md](docs/verification.md#lichess-play-against-lichess-ai-2026-11-18).
+
 ## ⚠️ Current limits
 
-- Playing strength is **not measured**. Jev picks moves; there is no engine evaluation.
+- Playing strength is only roughly estimated (see above). Jev picks moves; there is no engine evaluation.
 - Signed-in Chess.com games, long live autoplay sessions and arbitrary websites are not verified.
-- Live Lichess move submission has not been verified yet (account and event stream are).
+- Browser mode always runs the full six stages; clock-based depth, tactical facts and the blunder check are Lichess-only for now.
 - Unsupported or uncertain states stop with an error rather than guessing.
 
 See [docs/verification.md](docs/verification.md) for the exact evidence.

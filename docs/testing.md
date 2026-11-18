@@ -54,6 +54,23 @@ Mock mode labels responses as `mock`. It can parse explicit DOM fixture attribut
 
 Production backend after build:
 
+## Benchmarks and game reports
+
+These measure Jev itself. `--live` runs make **paid** OpenRouter requests; the mock and report commands are free.
+
+```sh
+pnpm benchmark:puzzles --live [--depth=quick|reduced|full] [--no-facts] [--no-verify]
+pnpm benchmark:puzzles --mock      # harness dry run, always picks the first option; NOT a measurement
+pnpm benchmark:jev --live --games=1 --max-plies=80
+pnpm lichess:stats                 # totals from journaled Lichess decisions (offline)
+pnpm lichess:report [--json]       # per-game Lichess breakdown (offline)
+```
+
+- `benchmark:puzzles` scores a fixed, mechanically checked tactics set and appends one line per live run to
+  `logs/benchmark-history.jsonl`, so changes can be compared over time.
+- `benchmark:jev` is a small 2×2 comparison (named pieces vs FEN, single vs staged) plus optional capped games
+  against a seeded random-move opponent. It can't establish a rating.
+
 ## Contributor checklist
 
 Before opening a pull request:

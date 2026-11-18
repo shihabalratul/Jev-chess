@@ -70,7 +70,7 @@ export default function App() {
     const squares = useMemo(() => orderedSquares(flipped), [flipped]);
     const fen = playGame.fen();
     const history = playGame.history();
-    const status = isReplay && replayIndex === 0 ? 'Jev plays White' : getStatus(game);
+    const status = isReplay && replayIndex === 0 ? `Jev plays ${replay.jevColor === 'white' ? 'White' : 'Black'}` : getStatus(game);
     const refresh = useCallback(() => setRevision((value) => value + 1), []);
     const tryMove = useCallback((from: Square, to: Square, promotion?: Promotion) => {
         const activeGame = gameRef.current;
@@ -314,7 +314,7 @@ export default function App() {
             <button type="button" role="tab" aria-selected={!isReplay} onClick={() => switchView('play')}>♟ Play</button>
           </div>
           <div className="page-heading">
-            <div><p className="eyebrow">{isReplay ? 'REPLAY · REAL JEV GAME' : 'INTERACTIVE BOARD'}</p><h1>{isReplay ? 'Jev vs a random mover.' : 'Make your next move.'}</h1></div>
+            <div><p className="eyebrow">{isReplay ? `REPLAY · REAL ${replay.source.site.toUpperCase()} GAME` : 'INTERACTIVE BOARD'}</p><h1>{isReplay ? `${replay.title}.` : 'Make your next move.'}</h1></div>
             <div className="turn-indicator"><span className={`turn-piece ${game.turn() === 'w' ? 'white-token' : 'black-token'}`}>{game.turn() === 'w' ? '♙' : '♟'}</span><span>{status}</span></div>
           </div>
 

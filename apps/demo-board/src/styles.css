@@ -140,6 +140,11 @@ h2 { margin: 0; color: #2f3d34; font: 700 16px Manrope, sans-serif; letter-spaci
 .prob-value { text-align: right; color: #8d958b; }
 .reply-list li { display: flex; gap: 8px; font: 500 11px 'DM Mono', monospace; color: #5b665d; }
 .reply-arrow { color: #a5ab9f; }
+.depth-badge { justify-self: start; border-radius: 5px; padding: 4px 8px; background: #f2f3ee; color: #6f796f; font: 500 9px 'DM Mono', monospace; letter-spacing: .3px; }
+.depth-badge.depth-full { background: #e3ecdf; color: #2f4c3a; }
+.verify-warning { border-radius: 6px; padding: 7px 9px; background: #fbf1df; color: #7a5a1c !important; }
+.move-jump.verified::after { content: ' ⚠'; color: #b8892c; font-size: 9px; }
+.replay-intro a { color: #385a44; font-weight: 600; }
 .replay-moves { max-height: 190px; }
 .move-jump { border: 0; border-radius: 4px; padding: 1px 4px; margin-left: -4px; background: transparent; text-align: left; font: inherit; cursor: pointer; justify-self: start; }
 .move-jump:hover { background: #f0f2ec; }

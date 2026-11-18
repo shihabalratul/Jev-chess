@@ -32,8 +32,10 @@ vision model is not used in this mode.
 6. Send a standard clock challenge to the BOT from another account, or have a
    consenting opponent challenge it. Accept that specific challenge in the panel.
    Select the resulting active game and press **Start Jev**. Prefer a casual
-   **10+5 or slower** game for initial checks: six decision stages can take up to
-   45 seconds, and Lichess also has a first-move deadline. Connecting and accepting
+   **10+5 or slower** game: Jev picks its depth from the clock (full six stages when it
+   has 30 s or more for the turn, fewer when time is short), a decision can take up to
+   45 seconds, and Lichess also has a first-move deadline. Challenges shorter than
+   `LICHESS_MIN_CLOCK_SECONDS` (default 300, counting base + 40 × increment) are refused. Connecting and accepting
    do not start Jev automatically. Select and start promptly after acceptance.
 
 You can also select a currently playing game that the event stream reports. Only
@@ -71,16 +73,21 @@ Reference: [Bot API](https://lichess.org/api#tag/Bot),
 [Fair Play](https://lichess.org/page/fair-play),
 [API usage guidance](https://lichess.org/page/api-tips).
 
+## Stats and reports
+
+The backend journals a summary for every decision and every finished game. Both commands
+read your local `logs/` only and make no network requests:
+
+```sh
+pnpm lichess:stats            # totals across all journaled Lichess decisions
+pnpm lichess:report [--json]  # per-game breakdown: result, cost, depth mix, blunder checks, material dropped
+```
+
 ## Verification status
 
-The integration passed 304 unit tests, typecheck/build and 16 local browser cases
-(four external/paid opt-ins skipped). The panel was also verified at narrow popup
-width. Mock Lichess streams and strategic responses are labeled separately from
-real-provider and external-browser evidence.
-
-The configured account `unc_s` has been verified as BOT, its token includes
-`bot:play`, and the live account-event stream returned HTTP 200 and a keepalive.
-The local backend is connected in live mode with autoplay stopped. No conversion
-is needed for this account. No challenge was accepted and no live Lichess move
-was submitted. Live gameplay and playing strength remain unverified; see
-docs/verification.md for the precise evidence.
+**Live play is verified.** On 2026-11-18 Jev played six casual 10+5 games on a BOT account
+against Lichess's built-in AI, levels 1–6. The games were started outside JevChess and selected
+in the panel. All 176 moves were submitted and confirmed by Lichess with no stalls, retries or clock
+trouble. Jev won against levels 1 and 2 and lost to levels 3–6. See
+[verification.md](verification.md#lichess-play-against-lichess-ai-2026-11-18) for the per-game table and
+the earlier 1.3 integration evidence.
