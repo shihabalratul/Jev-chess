@@ -2,9 +2,9 @@
 
 JevChess splits chess into three jobs that are easy to get wrong when mixed together:
 
-1. **Seeing**: what pieces are where? *(DOM parsing or a vision model)*
+1. **Seeing**: what pieces are where? *(DOM parsing, or **Luna** (`openai/gpt-6-luna`), the vision model)*
 2. **Knowing the rules**: what moves are legal, whose turn, castling rights? *([chess.js](https://github.com/jhlywa/chess.js), never an AI guess)*
-3. **Choosing**: which legal move to play? *(the Jev decision model)*
+3. **Choosing**: which legal move to play? *(**Jev** (`typesafe/jev-1.13`), the decision model. Testing how Jev plays chess is the point of the project)*
 
 Then it acts, and **checks that the board really changed** before trusting the move.
 
@@ -46,8 +46,8 @@ Reading pieces tries, in order:
 
 1. **Cached declarative rules** learned for this page (selectors and attribute maps only, never generated code);
 2. **Generic DOM/geometry heuristics**;
-3. **Vision model on a reduced, sanitized DOM**;
-4. **Vision model on a cropped screenshot** (this is how `<canvas>` boards work);
+3. **Luna on a reduced, sanitized DOM**;
+4. **Luna on a cropped screenshot** (this is how `<canvas>` boards work);
 5. **Hybrid** combinations.
 
 Results are cached by fingerprint, so an unchanged board doesn't trigger new model calls.

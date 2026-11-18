@@ -1,7 +1,7 @@
 {
   "name": "jev-chess",
   "version": "1.3.0",
-  "description": "AI chess player that thinks out loud: a Chrome extension and Lichess bot where a language model picks every move, no chess engine.",
+  "description": "Can a decision model play chess? A Chrome extension and Lichess bot where the Jev decision model picks every move and Luna reads the board. No chess engine.",
   "keywords": [
     "chess",
     "ai",

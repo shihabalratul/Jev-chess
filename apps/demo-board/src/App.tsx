@@ -302,7 +302,7 @@ export default function App() {
 
       {HOSTED && <aside className="hosted-banner" role="note">
         <span className="banner-icon" aria-hidden="true">♞</span>
-        <p><strong>This is the JevChess Board Lab.</strong> The Jev AI plays through the Chrome extension and a backend running on your own computer, so it can't play live on this page.
+        <p><strong>Can a decision model play chess?</strong> In JevChess the <strong>Jev</strong> decision model picks every move and <strong>Luna</strong> reads the board. They run through the Chrome extension and a backend on your own computer, so Jev can't play live on this page.
           Watch a <strong>real recorded Jev game</strong> below, or switch to <em>Play</em> and try the board yourself.</p>
         <a href={`${REPO_URL}#-quick-start`} target="_blank" rel="noreferrer">Run Jev yourself →</a>
       </aside>}

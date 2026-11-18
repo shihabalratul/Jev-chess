@@ -2,10 +2,11 @@
 
 # ♞ JevChess
 
-### An AI chess player that looks at the board, thinks out loud, and makes its own moves.
+### Can a decision model play chess? JevChess puts **Jev** to the test.
 
-No Stockfish. No opening book. Just a language model reasoning its way through every move,
-with the chess rules engine making sure it never plays an illegal one.
+**Jev** (`typesafe/jev-1.13`) chooses every move. **Luna** (`openai/gpt-6-luna`) reads the board.
+No Stockfish, no opening book: just a decision model answering one question after another,
+with the chess rules engine making sure it never plays an illegal move.
 
 [![Live demo](https://img.shields.io/badge/▶_live_demo-watch_Jev_play-5ad7a8?style=for-the-badge)](https://shihabalratul.github.io/Jev-chess/)
 
@@ -18,7 +19,7 @@ with the chess rules engine making sure it never plays an illegal one.
 
 <img src="docs/images/jev-vs-lichess-ai.gif" alt="Jev playing a real Lichess game against Lichess AI level 2: each move shows its intent, shortlist, examined lines, final probabilities and a blunder check, ending in checkmate" width="100%">
 
-<sub>A real game: Jev (White) vs Lichess AI level 2, 10+5, checkmate on move 21. The panel shows what Jev was thinking on each move.
+<sub>A real game: the Jev decision model (White) vs Lichess AI level 2, 10+5, checkmate on move 21. The panel shows Jev's actual recorded decisions on each move.
 <a href="https://shihabalratul.github.io/Jev-chess/">Step through it yourself</a> · <a href="https://lichess.org/P5cyQ6JG">see it on Lichess</a></sub>
 
 </div>
@@ -27,34 +28,44 @@ with the chess rules engine making sure it never plays an illegal one.
 
 ## What is this?
 
-JevChess is a fun experiment: **how well can an AI play chess if it has to actually think about each move,
-instead of calculating millions of positions like a chess engine?**
+JevChess started with one question: **how well does Jev, a decision model, play chess?**
+
+Jev isn't a chess engine and isn't a chatbot. It's a **decision model**: you give it a situation and a set of
+options, and it picks one, with a probability for every option. JevChess turns chess into exactly that kind
+of problem and watches what Jev does with it.
+
+## 🤖 Meet the models
+
+| | Model | Job |
+|---|---|---|
+| ♞ **Jev** | `typesafe/jev-1.13`, a decision model, via OpenRouter's Decisions API | **Plays the game.** Every move comes from Jev's answers to a short series of multiple-choice questions: *"Attack or defend here?"*, *"What will your opponent reply to each move?"*, *"Which of these finalists is best?"* Jev never sees an engine evaluation or a ranked list of "best moves". |
+| 👁️ **Luna** | `openai/gpt-6-luna`, a vision model, via OpenRouter | **Analyses the board.** Luna works out where the pieces are from a screenshot or the page's HTML (including `<canvas>` boards), reads the visible move list, and gets past popups that block the board. It never chooses a move. |
+| 📐 **chess.js** | open-source rules library | **Keeps everyone honest.** Lists the legal moves and plain rule facts (checks, captures, "this leaves your queen hanging"). It ranks nothing. |
+
+Both models are configurable in `.env`, and JevChess never silently swaps them if one fails.
 
 It comes in two flavours:
 
-- 🧩 **A Chrome extension** that finds a chessboard on a web page, works out the position, asks the AI for
-  a move, plays it with the mouse, and then checks that the move really happened.
-- 🤖 **A Lichess bot** that plays real games through Lichess's official Bot API.
-
-Behind both is **Jev**, a decision model that never sees a ranked list of "best moves". Instead it gets asked
-a series of simple questions, like *"Should you attack or defend here?"*, *"What will your opponent reply to
-each move?"* and *"Which of these finalists is best?"*, and builds its decision from its own answers.
+- 🧩 **A Chrome extension:** Luna reads a chessboard on a web page, Jev picks a move, and the extension plays it
+  with the mouse, then checks that the move really happened.
+- 🤖 **A Lichess bot:** plays real games through Lichess's official Bot API. Lichess supplies the position
+  directly, so it's pure Jev, with no vision needed.
 
 ## ✨ What makes it interesting
 
 | | |
 |---|---|
-| 👀 **It reads almost any board** | HTML boards, `<canvas>` boards, flipped boards. If it can't read the page, a vision model looks at a screenshot. |
-| 🧠 **You can see it think** | Every decision is logged: intent, shortlist, predicted replies, probabilities. The [live demo](https://shihabalratul.github.io/Jev-chess/) shows all of it. |
+| 👀 **It reads almost any board** | HTML boards, `<canvas>` boards, flipped boards. When the page alone isn't enough, Luna analyses a screenshot. |
+| 🧠 **You can see Jev think** | Every Jev decision is logged: intent, shortlist, predicted replies, probabilities. The [live demo](https://shihabalratul.github.io/Jev-chess/) shows all of it. |
 | ⏱️ **It manages its clock** | On Lichess it thinks harder when it has time (up to 6 stages) and faster when it doesn't. |
-| 🛟 **It checks itself for blunders** | If Jev's pick hangs a piece or allows mate in one, it is asked to reconsider. |
+| 🛟 **Jev checks itself for blunders** | If Jev's pick hangs a piece or allows mate in one, Jev is asked to reconsider, and still makes the final call. |
 | ✅ **It never guesses** | Moves only count once the board is seen to change. If anything looks off, it stops instead of guessing. |
 | 🔒 **Your keys stay home** | API keys live in a small local server and never touch the browser. |
 
-## 🏆 How good is it?
+## 🏆 So, how well does Jev play?
 
-Honestly? **About as good as Lichess's level 2–3 computer.** In its first test series it played six
-casual 10+5 games against Lichess's built-in AI:
+Honestly? **About as well as Lichess's level 2–3 computer.** In the first test series Jev played six
+casual 10+5 games against Lichess's built-in AI, choosing every move itself:
 
 | Opponent | Result |
 |---|---|
@@ -106,15 +117,15 @@ Want it to play on Lichess? See **[Lichess bot setup](docs/lichess-setup.md)**.
 
 ```mermaid
 flowchart LR
-    A[♟ Board on a web page<br/>or a Lichess game] -->|reads the position| B(JevChess)
+    A[♟ Board on a web page<br/>or a Lichess game] -->|Luna reads the board| B(JevChess)
     B -->|legal moves + facts<br/>from chess.js| C[(Jev<br/>asks itself<br/>up to 6 questions)]
     C -->|picks a move| B
     B -->|plays it, then checks<br/>the board changed| A
 ```
 
-1. **See:** read the pieces from the page (or the Lichess game stream).
-2. **Know the rules:** [chess.js](https://github.com/jhlywa/chess.js) works out every legal move, plus facts like "this leaves your queen hanging".
-3. **Think:** Jev answers its staged questions and picks a move. It can only pick legal ones.
+1. **See (Luna):** Luna analyses the board on the page, or the Lichess game stream supplies it directly.
+2. **Know the rules (chess.js):** [chess.js](https://github.com/jhlywa/chess.js) works out every legal move, plus facts like "this leaves your queen hanging".
+3. **Decide (Jev):** Jev answers its staged questions and picks a move. It can only pick legal ones.
 4. **Act and verify:** play the move, look again, and only trust it once the board agrees.
 
 The detailed version is in **[How it works](docs/how-it-works.md)**.
@@ -138,8 +149,9 @@ Your account, your call. Just don't say I didn't warn you. ♟️⚰️
 <details>
 <summary><b>Does it use Stockfish or another chess engine?</b></summary>
 
-No. chess.js only supplies rules facts (which moves are legal, what a move captures, whether it allows mate in one).
-Every choice is Jev's. That's the whole point of the experiment.
+No. chess.js only supplies rules facts (which moves are legal, what a move captures, whether it allows mate in one),
+and Luna only reads the board. Every choice is Jev's. That's the whole point of the experiment: testing how a
+decision model plays chess.
 </details>
 
 <details>
@@ -167,8 +179,9 @@ extension, a web page or the logs. See [SECURITY.md](SECURITY.md).
 <details>
 <summary><b>Can I use a different AI model?</b></summary>
 
-The models are configurable in `.env` (`VISION_MODEL`, `JEV_MODEL`). JevChess will never silently swap
-to a different model if yours fails. It reports the error instead.
+Yes. `JEV_MODEL` (default `typesafe/jev-1.13`) chooses the moves and `VISION_MODEL` (default
+`openai/gpt-6-luna`) reads the board. JevChess will never silently swap to a different model if yours fails.
+It reports the error instead.
 </details>
 
 ## 📚 Documentation
