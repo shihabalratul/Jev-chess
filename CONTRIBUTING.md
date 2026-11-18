@@ -13,7 +13,8 @@ PROVIDER_MODE=mock pnpm dev:server   # free, no API key needed
 pnpm dev:demo
 ```
 
-See [docs/getting-started.md](docs/getting-started.md) for loading the extension.
+See [docs/getting-started.md](docs/getting-started.md) for loading the extension, and the
+[Architecture guide](docs/architecture-guide.md) for how everything fits together, including a "where do I change X?" table.
 
 ## Workflow
 
@@ -29,7 +30,7 @@ See [docs/getting-started.md](docs/getting-started.md) for loading the extension
 
 ## Project rules
 
-These keep JevChess safe and honest:
+These keep JevChess safe and honest (also listed as invariants in the [Architecture guide](docs/architecture-guide.md#6-the-safety-rules-invariants)):
 
 - **Never expose credentials to the browser.** OpenRouter and Lichess tokens stay in the backend `.env`.
 - **Never silently swap providers or models.** If a configured model fails, report the error. Never fall back to mock or another model.

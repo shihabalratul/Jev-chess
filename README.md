@@ -113,22 +113,41 @@ choose `apps/extension/dist`. Open the practice board, click the JevChess icon, 
 Step-by-step guide and troubleshooting: **[Getting started](docs/getting-started.md)**.
 Want it to play on Lichess? See **[Lichess bot setup](docs/lichess-setup.md)**.
 
-## 🧠 How it works, in 30 seconds
+## 🧠 How it works
 
 ```mermaid
 flowchart LR
-    A[♟ Board on a web page<br/>or a Lichess game] -->|Luna reads the board| B(JevChess)
-    B -->|legal moves + facts<br/>from chess.js| C[(Jev<br/>asks itself<br/>up to 6 questions)]
-    C -->|picks a move| B
-    B -->|plays it, then checks<br/>the board changed| A
+    subgraph BROWSER["🌐 Chrome"]
+        PAGE["♟ Chess web page<br/>or the Board Lab"]
+        EXT["JevChess extension<br/>finds & reads the board<br/>plays & verifies moves"]
+    end
+    subgraph LOCAL["💻 Your computer"]
+        API["Local backend<br/>holds your keys<br/>builds Jev's questions<br/>writes logs"]
+        RULES["chess.js<br/>legal moves + rule facts"]
+    end
+    subgraph AI["☁️ OpenRouter"]
+        LUNA["👁 Luna<br/>openai/gpt-6-luna<br/>reads the board"]
+        JEV["♞ Jev<br/>typesafe/jev-1.13<br/>chooses the move"]
+    end
+    LICHESS["Lichess Bot API"]
+
+    PAGE -->|"DOM / screenshot"| EXT
+    EXT <-->|"localhost"| API
+    API -->|"board images"| LUNA
+    API <--> RULES
+    API -->|"up to 6 questions"| JEV
+    JEV -->|"move + probabilities"| API
+    EXT -->|"click / drag, then re-check"| PAGE
+    API <-->|"Lichess mode:<br/>stream + submit"| LICHESS
 ```
 
-1. **See (Luna):** Luna analyses the board on the page, or the Lichess game stream supplies it directly.
+1. **See (Luna):** the extension reads the board from the page's HTML. When that isn't enough (a `<canvas>` board, unusual markup), Luna analyses a screenshot. On Lichess the game stream supplies the position directly.
 2. **Know the rules (chess.js):** [chess.js](https://github.com/jhlywa/chess.js) works out every legal move, plus facts like "this leaves your queen hanging".
-3. **Decide (Jev):** Jev answers its staged questions and picks a move. It can only pick legal ones.
-4. **Act and verify:** play the move, look again, and only trust it once the board agrees.
+3. **Decide (Jev):** Jev answers up to six questions (assess → forecast replies → nominate → shortlist → continue → choose) and picks a move. It can only pick legal ones.
+4. **Act and verify:** play the move, look again, and only trust it once the board (or Lichess) agrees.
 
-The detailed version is in **[How it works](docs/how-it-works.md)**.
+📐 **[Architecture guide](docs/architecture-guide.md)**: the full picture with diagrams of each part, the API,
+the safety rules, and a "where do I change X?" table. The Jev pipeline step by step is in **[How it works](docs/how-it-works.md)**.
 
 ## 🪦 A friendly note on fair play (from someone who learned the hard way)
 
@@ -191,8 +210,9 @@ It reports the error instead.
 | [Getting started](docs/getting-started.md) | Install, free mock mode vs live mode, loading the extension |
 | [Usage guide](docs/usage.md) | Board detection, input modes, Chess.com notes, saved diagnostics |
 | [Lichess bot setup](docs/lichess-setup.md) | BOT account, token, challenges, stats and reports |
-| [How it works](docs/how-it-works.md) | Jev's stages, clock-based depth, blunder check, safety rules |
-| [Architecture](docs/architecture.md) | Design decisions and boundaries, in depth |
+| [Architecture guide](docs/architecture-guide.md) | **Start here:** diagrams of every part, the API, safety rules, where to change things |
+| [How it works](docs/how-it-works.md) | Jev's stages, clock-based depth, blunder check, with a real example |
+| [Architecture reference](docs/architecture.md) | The detailed design record: every edge case and decision |
 | [Testing](docs/testing.md) | Unit, browser, benchmark and live-check commands |
 | [Verification log](docs/verification.md) | Exactly what has been tested live, and how |
 | [Changelog](CHANGELOG.md) | What changed in each release |

@@ -1,5 +1,7 @@
 # How JevChess works
 
+> Looking for the big picture of every component? See the **[Architecture guide](architecture-guide.md)**. This page zooms in on how a move gets chosen.
+
 JevChess splits chess into three jobs that are easy to get wrong when mixed together:
 
 1. **Seeing**: what pieces are where? *(DOM parsing, or **Luna** (`openai/gpt-6-luna`), the vision model)*

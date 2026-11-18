@@ -1,6 +1,7 @@
 # JevChess agent guidance
 
 The project specification is `prompt.md`; revised architecture and work tracking are in `docs/architecture.md` and `docs/implementation-plan.md`.
+For a quick map of components, data flow, API endpoints, invariants and "where to change X", read `docs/architecture-guide.md` first.
 Use Luna (`gpt-6-luna`) only for really easy, repetitive delegated tasks. Use Sol (`gpt-6.1-sol`) for complex delegated tasks, as requested by the user. Keep architectural, cancellation, state integrity, and provider contract work in the main agent.
 
 Use pnpm workspaces (the repository preference supersedes prompt.md's npm commands). Commands from repository root:

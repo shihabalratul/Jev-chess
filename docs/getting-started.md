@@ -113,6 +113,7 @@ pnpm build:extension      # or `pnpm build` for everything
 - [Usage guide](usage.md): recognition modes, input modes, real websites, diagnostics
 - [Lichess BOT setup](lichess-setup.md): play through the official Bot API
 - [How it works](how-it-works.md)
+- [Architecture guide](architecture-guide.md): every part of the system, with diagrams
 
 ## Troubleshooting
 
