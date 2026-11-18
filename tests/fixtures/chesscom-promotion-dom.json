@@ -1,0 +1,18 @@
+{
+  "source": "https://www.chess.com/analysis",
+  "capturedDate": "2026-10-21",
+  "provenance": "Sanitized reduction of rendered public DOM observed with the in-app browser. Empty pools, coordinate SVG and unrelated analysis UI omitted. No private game state read.",
+  "initialFen": "7k/P7/8/8/8/8/8/7K w - - 0 1",
+  "boardRect": {"x":114,"y":66,"width":552,"height":552},
+  "board": "<wc-chess-board class=\"board\" id=\"board-analysis-board\" style=\"--move-animation-duration: 180ms;\"><div class=\"piece square-88 bk\"></div><div class=\"piece wp square-18 dragging\"></div><div class=\"piece square-81 wk\"></div><div class=\"promotion-window top promotion-window--visible\" style=\"transform: translateX(0%);\"><i class=\"close-button icon-font-chess x\"></i><div class=\"promotion-piece wb\"></div><div class=\"promotion-piece wn\"></div><div class=\"promotion-piece wq\"></div><div class=\"promotion-piece wr\"></div></div></wc-chess-board>",
+  "rects": [
+    {"selector":".piece.bk","x":597,"y":66,"width":69,"height":69},
+    {"selector":".piece.wp","x":114,"y":66,"width":69,"height":69},
+    {"selector":".piece.wk","x":597,"y":549,"width":69,"height":69},
+    {"selector":".promotion-window","x":114,"y":66,"width":69,"height":310.5},
+    {"selector":".promotion-piece.wb","x":114,"y":273,"width":69,"height":69},
+    {"selector":".promotion-piece.wn","x":114,"y":135,"width":69,"height":69},
+    {"selector":".promotion-piece.wq","x":114,"y":66,"width":69,"height":69},
+    {"selector":".promotion-piece.wr","x":114,"y":204,"width":69,"height":69}
+  ]
+}

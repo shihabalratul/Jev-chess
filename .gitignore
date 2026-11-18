@@ -1,0 +1,18 @@
+node_modules/
+.env
+*.log
+apps/*/dist/
+test-results/
+playwright-report/
+
+logs/
+
+/.test-tmp/
+
+# Local / build leftovers
+releases/
+.aws/
+.codex/
+.agents/
+/Chess.com
+playwright/.cache/

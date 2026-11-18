@@ -1,0 +1,10 @@
+{
+  "source": "https://www.chess.com/play/computer",
+  "observedAt": "2026-10-21",
+  "description": "Sanitized public DOM and readonly export values from a new anonymous bot game. SVG paths, styles, avatars and unrelated content omitted. No private state accessed.",
+  "board": "<wc-chess-board class=\"board\" id=\"board-play-computer\"></wc-chess-board>",
+  "moveList": "<wc-simple-move-list scroll-container-id=\"scroll-container\" class=\"play-controller-moveList move-list chessboard-pkg-move-list-component\" board-id=\"board-play-computer\"></wc-simple-move-list>",
+  "controls": "<div class=\"game-controls-controller-component\"><div class=\"small-controls-smallControls\"><div class=\"small-controls-leftIcons\"><button aria-label=\"Download\" type=\"button\"><span aria-hidden=\"true\"><svg data-glyph=\"arrow-triangle-tray-in-bottom\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"></svg></span></button></div></div></div>",
+  "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "pgn": "[Event \"Play vs Bot\"]\n[Site \"Chess.com\"]\n[Date \"2026.10.21\"]\n[Round \"?\"]\n[White \"null\"]\n[Black \"Martinfoot\"]\n[Result \"*\"]\n[BlackElo \"250\"]\n[WhiteElo \"null\"]\n[Link \"https://www.chess.com/play/computer\"]\n\n*"
+}

@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "JevChess \u00b7 Universal AI Chess",
+  "version": "1.3.0",
+  "minimum_chrome_version": "116",
+  "description": "Observe, validate and play chess on boards you authorize. OpenRouter secrets stay on your local backend.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "sidePanel",
+    "alarms"
+  ],
+  "optional_permissions": [
+    "debugger"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JevChess"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApnuj0gFoMiyBeZVxrgM4f+m3kpvuifgn2hyLVTI53DW0PyNrKvv5VUhKWhvJ9QuvuJA0usCEnqA/+ACDbClObj1u4rwpULRxDZqH6hLSv6qPQrnpH+rshDZZkgeQopcMJW9/jNffMRy8a3Bdr7TND+T3UMF8NjPdOdHOEk7t7LW+/C/WqY1kAKgPRih5MHsS0oHU1pYLdd2npBotl5UK+Jw+2JL8BTalIljw4viZzdhVO2++uEbpEyQQRarF56HoWvUMTeh3kSPKR4YgCzTc5tCwGpFuk4LAH13rKRjUmhQUW9oKe63IPrVQ7vjNtwuDBrqRpSR+JR/5C5JNfW8h1QIDAQAB"
+}
