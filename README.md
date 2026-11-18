@@ -13,9 +13,10 @@ then checks the board to confirm it really happened. It can also run as a **Lich
 ![Version](https://img.shields.io/badge/version-1.3.0-blue)
 ![Chrome MV3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+[![Live demo](https://img.shields.io/badge/demo-play%20the%20Board%20Lab-5ad7a8)](https://shihabalratul.github.io/Jev-chess/)
 [![GitHub stars](https://img.shields.io/github/stars/shihabalratul/Jev-chess?style=social)](https://github.com/shihabalratul/Jev-chess/stargazers)
 
-[Quick start](#-quick-start) · [Try it free](#-try-it-for-free-mock-mode) · [How it works](docs/how-it-works.md) · [Docs](#-documentation) · [Contributing](CONTRIBUTING.md)
+[▶ Live demo](https://shihabalratul.github.io/Jev-chess/) · [Quick start](#-quick-start) · [Try it free](#-try-it-for-free-mock-mode) · [How it works](docs/how-it-works.md) · [Docs](#-documentation) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -38,6 +39,13 @@ then checks the board to confirm it really happened. It can also run as a **Lich
 - **Full diagnostics.** Every session is journaled to `logs/<session-id>/` (screenshots, FEN, model exchanges) with credentials stripped.
 - **Board Lab.** A local React demo board (DOM or Canvas, flip, FEN loading, mock opponent) for safe experimentation.
 - **Well tested.** 338 unit tests plus Playwright tests that load the real extension.
+
+## ▶️ Live demo
+
+Play with the **Board Lab** right in your browser: **https://shihabalratul.github.io/Jev-chess/**
+
+It's the same test board JevChess develops against (DOM/Canvas rendering, flip, FEN loading and a simple mock opponent).
+The hosted page is just the board; to watch **Jev** play, run the backend and extension locally (below).
 
 ## 🚀 Quick start
 
